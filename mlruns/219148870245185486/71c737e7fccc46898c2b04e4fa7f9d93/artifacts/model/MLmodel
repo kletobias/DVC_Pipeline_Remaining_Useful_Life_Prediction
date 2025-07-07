@@ -1,0 +1,38 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.12
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+is_signature_from_type_hint: false
+mlflow_version: 2.22.0
+model_size_bytes: 3261
+model_uuid: 66e80875895d4b52996e8fa4ab48fae8
+prompts: null
+run_id: 71c737e7fccc46898c2b04e4fa7f9d93
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "HPT_eff_mod", "required": true}, {"type":
+    "double", "name": "Mach", "required": true}, {"type": "double", "name": "Nc",
+    "required": true}, {"type": "double", "name": "Nf", "required": true}, {"type":
+    "double", "name": "P15", "required": true}, {"type": "double", "name": "P30",
+    "required": true}, {"type": "double", "name": "SmFan", "required": true}, {"type":
+    "double", "name": "SmLPC", "required": true}, {"type": "double", "name": "hs",
+    "required": true}]'
+  outputs: '[{"type": "double", "name": "RUL", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-05-28 12:48:38.281591'

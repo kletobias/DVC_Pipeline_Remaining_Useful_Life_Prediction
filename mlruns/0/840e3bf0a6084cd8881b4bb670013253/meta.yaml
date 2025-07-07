@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/0/840e3bf0a6084cd8881b4bb670013253/artifacts
+end_time: 1748334797484
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 840e3bf0a6084cd8881b4bb670013253
+run_name: clean-bird-662
+run_uuid: 840e3bf0a6084cd8881b4bb670013253
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748334783315
+status: 3
+tags: []
+user_id: tobias

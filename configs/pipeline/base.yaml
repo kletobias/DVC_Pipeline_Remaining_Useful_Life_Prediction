@@ -1,0 +1,120 @@
+stages:
+  - name: setup_gitlab_ci_runner
+    cmd_python: bash bin/setup_gitlab_runner.sh
+    frozen: true
+    deps: [bin/setup_gitlab_runner.sh]
+    outs: []
+  - name: v0_ingest_data_train
+    cmd_python: ${cmd_python}
+    script: ${universal_step_script}
+    overrides: setup.script_base_name=ingest_data transformations=ingest_data data_versions.data_version_input=v0 data_storage=train data_storage.input_file_extension=h5 data_storage.output_file_extension=parquet data_storage.input_file_path=${datasets.dataset.original_file_path} logging_utils.level=10 io_policy.READ_INPUT=false data_split=train
+    deps:
+      - ${universal_step_script}
+      - ./configs/transformations/ingest_data.yaml
+      - ./dependencies/transformations/ingest_data.py
+      - ./configs/data_versions/v0.yaml
+    outs:
+      - ./data/cmapss_ds02_006/v0/v0_train.parquet
+      - ./data/cmapss_ds02_006/v0/v0_train_metadata.json
+  - name: v0_ingest_data_test
+    cmd_python: ${cmd_python}
+    frozen: true
+    script: ${universal_step_script}
+    overrides: setup.script_base_name=ingest_data transformations=ingest_data data_versions.data_version_input=v0 data_storage=test data_storage.input_file_extension=h5 data_storage.output_file_extension=parquet data_storage.input_file_path=${datasets.dataset.original_file_path} logging_utils.level=10 io_policy.READ_INPUT=false data_split=test
+    deps:
+      - ${universal_step_script}
+      - ./configs/transformations/ingest_data.yaml
+      - ./dependencies/transformations/ingest_data.py
+      - ./configs/data_versions/v0.yaml
+    outs:
+      - ./data/cmapss_ds02_006/v0/v0_test.parquet
+      - ./data/cmapss_ds02_006/v0/v0_test_metadata.json
+  - name: setup_make_params_transformations_dir
+    frozen: true
+    cmd_python: ${cmd_python}
+    script: dependencies/general/mkdir_if_not_exists.py
+    overrides: --directory params_transformations
+    deps: []
+    outs: []
+  - name: v0_remove_constant_and_high_corr_features_train
+    cmd_python: ${cmd_python}
+    frozen: true
+    script: ${universal_step_script}
+    overrides: setup.script_base_name=remove_constant_and_high_corr_features transformations=remove_constant_and_high_corr_features data_versions.data_version_input=v0 data_versions.data_version_output=v1 data_storage=train data_storage.input_file_extension=parquet data_storage.output_file_extension=parquet logging_utils.level=10 data_split=train
+    deps:
+      - ${universal_step_script}
+      - ./configs/transformations/remove_constant_and_high_corr_features.yaml
+      - ./dependencies/transformations/remove_constant_and_high_corr_features.py
+      - ./configs/data_versions/v0.yaml
+    outs:
+      - ./data/cmapss_ds02_006/v1/v1_train.parquet
+      - ./data/cmapss_ds02_006/v1/v1_train_metadata.json
+      - ./params_transformations/cmapss_ds02_006/v1/v1_params.yaml
+  - name: v0_remove_constant_and_high_corr_features_test
+    cmd_python: ${cmd_python}
+    frozen: true
+    script: ${universal_step_script}
+    overrides: setup.script_base_name=remove_constant_and_high_corr_features transformations=remove_constant_and_high_corr_features data_versions.data_version_input=v0 data_versions.data_version_output=v1 data_storage=test data_storage.input_file_extension=parquet data_storage.output_file_extension=parquet logging_utils.level=10 data_split=test
+    deps:
+      - ${universal_step_script}
+      - ./configs/transformations/remove_constant_and_high_corr_features.yaml
+      - ./dependencies/transformations/remove_constant_and_high_corr_features.py
+      - ./configs/data_versions/v0.yaml
+      - ./params_transformations/cmapss_ds02_006/v1/v1_params.yaml
+    outs:
+      - ./data/cmapss_ds02_006/v1/v1_test.parquet
+      - ./data/cmapss_ds02_006/v1/v1_test_metadata.json
+  - name: v1_ridge_optuna_trial
+    desc: "Run Ridge regression with Optuna hyperparameter tuning including parameters: alpha, solver, tol, max_iter"
+    cmd_python: ${cmd_python}
+    frozen: true
+    script: ${universal_step_script}
+    overrides: >
+      setup.script_base_name=ridge_optuna_trial
+      transformations=ridge_optuna_trial
+      data_versions.data_version_input=v1
+      data_versions.data_version_output=v1
+      io_policy.READ_INPUT=false
+      io_policy.WRITE_OUTPUT=false
+      model_params=ridge_optuna_trial_params
+    deps:
+      - ${universal_step_script}
+      - ./configs/transformations/ridge_optuna_trial.yaml
+      - ./dependencies/modeling/ridge_optuna_trial.py
+      - ./configs/data_versions/v1.yaml
+      - ./data/cmapss_ds02_006/v1/v1_train.parquet
+      - ./data/cmapss_ds02_006/v1/v1_test.parquet
+    outs: []
+  - name: v1_ridge_optuna_trial_2
+    desc: "Run Ridge regression with Optuna hyperparameter tuning including parameters: alpha, tol, max_iter with different ranges compared to v1_ridge_optuna_trial"
+    cmd_python: ${cmd_python}
+    frozen: true
+    script: ${universal_step_script}
+    overrides: >
+      setup.script_base_name=ridge_optuna_trial
+      transformations=ridge_optuna_trial_2
+      data_versions.data_version_input=v1
+      data_versions.data_version_output=v1
+      io_policy.READ_INPUT=false
+      io_policy.WRITE_OUTPUT=false
+      model_params=ridge_optuna_trial_2_params
+    deps:
+      - ${universal_step_script}
+      - ./configs/transformations/ridge_optuna_trial_2.yaml
+      - ./dependencies/modeling/ridge_optuna_trial.py
+      - ./configs/data_versions/v1.yaml
+      - ./data/cmapss_ds02_006/v1/v1_train.parquet
+      - ./data/cmapss_ds02_006/v1/v1_test.parquet
+    outs: []
+  - name: simulate_inference_mlflow
+    desc: "Locally Simulate full inference using MLflow model and scaler"
+    cmd_python: ${cmd_python}
+    frozen: false
+    script: bin/simulate_inference_cv.py
+    overrides:
+    deps:
+      - ./bin/simulate_inference_cv.py
+      - ./configs/inference/cv.yaml
+      - ./data/cmapss_ds02_006/inference/XY_inference_full.parquet
+    outs:
+      - ./data/cmapss_ds02_006/inference/mlflow_output_full.parquet

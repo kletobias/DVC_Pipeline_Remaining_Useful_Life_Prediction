@@ -1,0 +1,24 @@
+rng_seed: ${rng_seed}
+n_jobs_study: 1
+n_jobs_cv: -1
+n_jobs_final_model: -1
+target_col_modeling: RUL
+train_file_path: ${paths.directories.data}/${datasets.dataset.directory_name}/${data_versions.data_version_input}/${data_versions.data_version_input}_train.${data_storage.input_file_extension}
+test_file_path: ${paths.directories.data}/${datasets.dataset.directory_name}/${data_versions.data_version_input}/${data_versions.data_version_input}_test.${data_storage.input_file_extension}
+
+experiment_prefix: ridge_optuna_trial
+experiment_id: "${.experiment_prefix}_${now:%Y-%m-%d_%H-%M-%S}"
+
+artifact_directory_path: "artifacts"
+
+permutation_importances_filename: "permutation_importances.csv"
+randomforest_importances_filename: "randomforest_importances.csv"
+
+top_n_importances: 10
+optuna_n_trials: 5
+cv_splits: 9
+direction: minimize
+
+scoring:
+  rmse: neg_root_mean_squared_error
+  r2: r2

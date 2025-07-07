@@ -1,0 +1,284 @@
+schema: '2.0'
+stages:
+  v0_ingest_data_train:
+    cmd: $CMD_PYTHON scripts/universal_step.py setup.script_base_name=ingest_data
+      transformations=ingest_data data_versions.data_version_input=v0 data_storage=train
+      data_storage.input_file_extension=h5 data_storage.output_file_extension=parquet
+      data_storage.input_file_path=/Volumes/data/predictive_maintenance/nasa_turbofan_degradation_v2/cmapss2_complete/data_set/N-CMAPSS_DS02-006.h5
+      logging_utils.level=10 io_policy.READ_INPUT=false data_split=train
+    deps:
+    - path: ./configs/data_versions/v0.yaml
+      hash: md5
+      md5: 258d575cae7fabdf3e1e6dd3f35a66e9
+      size: 19
+    - path: ./configs/transformations/ingest_data.yaml
+      hash: md5
+      md5: 38b31c963696e18de20c1d6ad45869d0
+      size: 135
+    - path: ./dependencies/transformations/ingest_data.py
+      hash: md5
+      md5: b2f2cc62db1c913cea690cecc785ae28
+      size: 2547
+    - path: scripts/universal_step.py
+      hash: md5
+      md5: 53c64579165e735b5ed4c917fba67c62
+      size: 5750
+    outs:
+    - path: ./data/cmapss_ds02_006/v0/v0_train.parquet
+      hash: md5
+      md5: 44189b2aae483f31ca43781edefc70a5
+      size: 1282949426
+    - path: ./data/cmapss_ds02_006/v0/v0_train_metadata.json
+      hash: md5
+      md5: a95cf8b7b3ca14aeeca0d7cbb7e8e1ed
+      size: 8757
+  setup_gitlab_ci_runner:
+    cmd: bash bin/setup_gitlab_runner.sh
+    deps:
+    - path: bin/setup_gitlab_runner.sh
+      hash: md5
+      md5: 171aa37eaa28981f96729355d68959de
+      size: 436
+  v0_ingest_data_test:
+    cmd: $CMD_PYTHON scripts/universal_step.py setup.script_base_name=ingest_data
+      transformations=ingest_data data_versions.data_version_input=v0 data_storage=test
+      data_storage.input_file_extension=h5 data_storage.output_file_extension=parquet
+      data_storage.input_file_path=/Volumes/data/predictive_maintenance/nasa_turbofan_degradation_v2/cmapss2_complete/data_set/N-CMAPSS_DS02-006.h5
+      logging_utils.level=10 io_policy.READ_INPUT=false data_split=test
+    deps:
+    - path: ./configs/data_versions/v0.yaml
+      hash: md5
+      md5: 258d575cae7fabdf3e1e6dd3f35a66e9
+      size: 19
+    - path: ./configs/transformations/ingest_data.yaml
+      hash: md5
+      md5: 38b31c963696e18de20c1d6ad45869d0
+      size: 135
+    - path: ./dependencies/transformations/ingest_data.py
+      hash: md5
+      md5: b2f2cc62db1c913cea690cecc785ae28
+      size: 2547
+    - path: scripts/universal_step.py
+      hash: md5
+      md5: 53c64579165e735b5ed4c917fba67c62
+      size: 5750
+    outs:
+    - path: ./data/cmapss_ds02_006/v0/v0_test.parquet
+      hash: md5
+      md5: 11e6bf8632e291b86f0692f26fc1cd53
+      size: 311529166
+    - path: ./data/cmapss_ds02_006/v0/v0_test_metadata.json
+      hash: md5
+      md5: 364afedf79f9ab2799ca983b7cdaa7b4
+      size: 8753
+  setup_make_params_dir:
+    cmd: $CMD_PYTHON dependencies/general/mkdir_if_not_exists.py --directory params
+  v0_remove_constant_and_high_corr_features_train:
+    cmd: $CMD_PYTHON scripts/universal_step.py setup.script_base_name=remove_constant_and_high_corr_features
+      transformations=remove_constant_and_high_corr_features data_versions.data_version_input=v0
+      data_versions.data_version_output=v1 data_storage=train data_storage.input_file_extension=parquet
+      data_storage.output_file_extension=parquet logging_utils.level=10 data_split=train
+    deps:
+    - path: ./configs/data_versions/v0.yaml
+      hash: md5
+      md5: 258d575cae7fabdf3e1e6dd3f35a66e9
+      size: 19
+    - path: ./configs/transformations/remove_constant_and_high_corr_features.yaml
+      hash: md5
+      md5: ead569a7e857dc8ca9f8247a1c472902
+      size: 252
+    - path: ./dependencies/transformations/remove_constant_and_high_corr_features.py
+      hash: md5
+      md5: 4ba4e070f14a518831706e922ba5cb56
+      size: 2664
+    - path: scripts/universal_step.py
+      hash: md5
+      md5: 53c64579165e735b5ed4c917fba67c62
+      size: 5750
+    outs:
+    - path: ./data/cmapss_ds02_006/v1/v1_train.parquet
+      hash: md5
+      md5: b561f5361b675fa3ef1489a8b48832e5
+      size: 270067398
+    - path: ./data/cmapss_ds02_006/v1/v1_train_metadata.json
+      hash: md5
+      md5: 973d18e0128416d9aff0a3e9561337aa
+      size: 2445
+    - path: ./params_transformations/cmapss_ds02_006/v1/v1_params.yaml
+      hash: md5
+      md5: a2671871ad33b702a0279dd1e3aeb38e
+      size: 97
+  setup_make_params_transformations_dir:
+    cmd: $CMD_PYTHON dependencies/general/mkdir_if_not_exists.py --directory params_transformations
+  v0_remove_constant_and_high_corr_features_test:
+    cmd: $CMD_PYTHON scripts/universal_step.py setup.script_base_name=remove_constant_and_high_corr_features
+      transformations=remove_constant_and_high_corr_features data_versions.data_version_input=v0
+      data_versions.data_version_output=v1 data_storage=test data_storage.input_file_extension=parquet
+      data_storage.output_file_extension=parquet logging_utils.level=10 data_split=test
+    deps:
+    - path: ./configs/data_versions/v0.yaml
+      hash: md5
+      md5: 258d575cae7fabdf3e1e6dd3f35a66e9
+      size: 19
+    - path: ./configs/transformations/remove_constant_and_high_corr_features.yaml
+      hash: md5
+      md5: ead569a7e857dc8ca9f8247a1c472902
+      size: 252
+    - path: ./dependencies/transformations/remove_constant_and_high_corr_features.py
+      hash: md5
+      md5: 4ba4e070f14a518831706e922ba5cb56
+      size: 2664
+    - path: ./params_transformations/cmapss_ds02_006/v1/v1_params.yaml
+      hash: md5
+      md5: a2671871ad33b702a0279dd1e3aeb38e
+      size: 97
+    - path: scripts/universal_step.py
+      hash: md5
+      md5: 53c64579165e735b5ed4c917fba67c62
+      size: 5750
+    outs:
+    - path: ./data/cmapss_ds02_006/v1/v1_test.parquet
+      hash: md5
+      md5: b643ad5fab99fd7f181f869029880c6f
+      size: 65652898
+    - path: ./data/cmapss_ds02_006/v1/v1_test_metadata.json
+      hash: md5
+      md5: 29482da9ecc4a4927caf80e44462ee49
+      size: 2443
+  v1_ridge_optuna_trial:
+    cmd: $CMD_PYTHON scripts/universal_step.py setup.script_base_name=ridge_optuna_trial
+      transformations=ridge_optuna_trial data_versions.data_version_input=v1 data_versions.data_version_output=v1
+      io_policy.READ_INPUT=false io_policy.WRITE_OUTPUT=false model_params=ridge_optuna_trial_params
+    deps:
+    - path: ./configs/data_versions/v1.yaml
+      hash: md5
+      md5: 35059068dcd72d5cec3da8b44e5cd476
+      size: 265
+    - path: ./configs/transformations/ridge_optuna_trial.yaml
+      hash: md5
+      md5: 762313204953bdb287a2aa085ab508cf
+      size: 1171
+    - path: ./data/cmapss_ds02_006/v1/v1_test.parquet
+      hash: md5
+      md5: b643ad5fab99fd7f181f869029880c6f
+      size: 65652898
+    - path: ./data/cmapss_ds02_006/v1/v1_train.parquet
+      hash: md5
+      md5: b561f5361b675fa3ef1489a8b48832e5
+      size: 270067398
+    - path: ./dependencies/modeling/ridge_optuna_trial.py
+      hash: md5
+      md5: 994d14c982022d5a598eae62eb1b0ddc
+      size: 10089
+    - path: scripts/universal_step.py
+      hash: md5
+      md5: 53c64579165e735b5ed4c917fba67c62
+      size: 5750
+  v1_ridge_optuna_trial_standard_scaler:
+    cmd: $CMD_PYTHON scripts/universal_step.py setup.script_base_name=ridge_optuna_trial
+      transformations=ridge_optuna_trial data_versions.data_version_input=v1 data_versions.data_version_output=v1
+      io_policy.READ_INPUT=false io_policy.WRITE_OUTPUT=false model_params=ridge_optuna_trial_params
+    deps:
+    - path: ./configs/data_versions/v1.yaml
+      hash: md5
+      md5: 35059068dcd72d5cec3da8b44e5cd476
+      size: 265
+    - path: ./configs/transformations/ridge_optuna_trial.yaml
+      hash: md5
+      md5: f0a114d41bcce52ed42b12e83821a96e
+      size: 817
+    - path: ./data/cmapss_ds02_006/v1/v1_test.parquet
+      hash: md5
+      md5: 8aefbc18c8cca7d14e9b6be335dff286
+      size: 65653125
+    - path: ./data/cmapss_ds02_006/v1/v1_train.parquet
+      hash: md5
+      md5: 81c1cd0ad079b5eee8c7b9ea04fa3582
+      size: 270068101
+    - path: ./dependencies/modeling/ridge_optuna_trial_standard_scaler.py
+      hash: md5
+      md5: 30962203d24b5241d470fbad3a30f700
+      size: 9392
+    - path: scripts/universal_step.py
+      hash: md5
+      md5: f90c593158ef1580d69dc17e1207cf93
+      size: 5611
+  v1_ridge_optuna_trial_standard_scaler_2:
+    cmd: "$CMD_PYTHON scripts/universal_step.py setup.script_base_name=ridge_optuna_trial_standard_scaler_gpt_2
+      transformations=ridge_optuna_trial_standard_scaler_gpt_2 data_versions.data_version_input=v1
+      data_versions.data_version_output=v1 io_policy.READ_INPUT=false io_policy.WRITE_OUTPUT=false
+      model_params=ridge_optuna_trial_2_params\n"
+    deps:
+    - path: ./configs/data_versions/v1.yaml
+      hash: md5
+      md5: 35059068dcd72d5cec3da8b44e5cd476
+      size: 265
+    - path: ./configs/transformations/ridge_optuna_trial.yaml
+      hash: md5
+      md5: 60830c0631a5e710a18175c74713710f
+      size: 1090
+    - path: ./data/cmapss_ds02_006/v1/v1_test.parquet
+      hash: md5
+      md5: 8aefbc18c8cca7d14e9b6be335dff286
+      size: 65653125
+    - path: ./data/cmapss_ds02_006/v1/v1_train.parquet
+      hash: md5
+      md5: 81c1cd0ad079b5eee8c7b9ea04fa3582
+      size: 270068101
+    - path: ./dependencies/modeling/ridge_optuna_trial_standard_scaler_gpt_2.py
+      hash: md5
+      md5: 23e547ae2d937e75fba16d2e7ee2fd8a
+      size: 8792
+    - path: scripts/universal_step.py
+      hash: md5
+      md5: d384d924d914912710e92660096a5a6b
+      size: 5980
+  v1_ridge_optuna_trial_2:
+    cmd: $CMD_PYTHON scripts/universal_step.py setup.script_base_name=ridge_optuna_trial_2
+      transformations=ridge_optuna_trial_2 data_versions.data_version_input=v1 data_versions.data_version_output=v1
+      io_policy.READ_INPUT=false io_policy.WRITE_OUTPUT=false model_params=ridge_optuna_trial_2_params
+    deps:
+    - path: ./configs/data_versions/v1.yaml
+      hash: md5
+      md5: 35059068dcd72d5cec3da8b44e5cd476
+      size: 265
+    - path: ./configs/transformations/ridge_optuna_trial_2.yaml
+      hash: md5
+      md5: cf9a03677ab0c39645e78fb38c9c6908
+      size: 1177
+    - path: ./data/cmapss_ds02_006/v1/v1_test.parquet
+      hash: md5
+      md5: b643ad5fab99fd7f181f869029880c6f
+      size: 65652898
+    - path: ./data/cmapss_ds02_006/v1/v1_train.parquet
+      hash: md5
+      md5: b561f5361b675fa3ef1489a8b48832e5
+      size: 270067398
+    - path: ./dependencies/modeling/ridge_optuna_trial.py
+      hash: md5
+      md5: 994d14c982022d5a598eae62eb1b0ddc
+      size: 10089
+    - path: scripts/universal_step.py
+      hash: md5
+      md5: 53c64579165e735b5ed4c917fba67c62
+      size: 5750
+  simulate_inference_mlflow:
+    cmd: $CMD_PYTHON bin/simulate_inference_cv.py
+    deps:
+    - path: ./bin/simulate_inference_cv.py
+      hash: md5
+      md5: 579410cfe7b37ca2b970e3ed7663b517
+      size: 5927
+    - path: ./configs/inference/cv.yaml
+      hash: md5
+      md5: 5c680bf4a682f50c58eb28a2c64816af
+      size: 1217
+    - path: ./data/cmapss_ds02_006/inference/XY_inference_full.parquet
+      hash: md5
+      md5: b643ad5fab99fd7f181f869029880c6f
+      size: 65652898
+    outs:
+    - path: ./data/cmapss_ds02_006/inference/mlflow_output_full.parquet
+      hash: md5
+      md5: b4fb236b9bac8c0cd05cacad3d43a604
+      size: 86827155

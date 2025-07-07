@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/0/b0cb0d9db28a44a5be4dec152c20a75e/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b0cb0d9db28a44a5be4dec152c20a75e
+run_name: awesome-shrike-647
+run_uuid: b0cb0d9db28a44a5be4dec152c20a75e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748419690164
+status: 1
+tags: []
+user_id: tobias

@@ -1,0 +1,14 @@
+directories:
+  project_root: ${oc.env:PROJECT_ROOT}
+  nas_root: ${oc.env:NAS_ROOT}
+  bin: "${.project_root}/bin"
+  configs: "${.project_root}/configs"
+  data: "${.nas_root}/data"
+  params_transformations: "${.project_root}/params_transformations"
+  dependencies: "${.project_root}/dependencies"
+  documentation: "${.project_root}/documentation"
+  logs: "${.project_root}/logs"
+  outputs: "${.project_root}/outputs"
+  scripts: "${.project_root}/scripts"
+  templates: "${.project_root}/templates"
+  mlruns: "${.project_root}/mlruns"

@@ -1,0 +1,16 @@
+defaults:
+  - base
+  - _self_
+
+split: single_file
+suffix: ""
+# File paths input data
+input_file_path: ${paths.directories.data}/${datasets.dataset.directory_name}/${data_versions.data_version_input}/${data_versions.data_version_input}.${data_storage.input_file_extension}
+input_metadata_file_path: ${paths.directories.data}/${datasets.dataset.directory_name}/${data_versions.data_version_input}/${data_versions.data_version_input}_metadata.${data_storage.input_metadata_file_extension}
+
+# File paths output data
+output_file_path: ${paths.directories.data}/${datasets.dataset.directory_name}/${data_versions.data_version_output}/${data_versions.data_version_output}.${data_storage.output_file_extension}
+output_metadata_file_path: ${paths.directories.data}/${datasets.dataset.directory_name}/${data_versions.data_version_output}/${data_versions.data_version_output}_metadata.${data_storage.output_metadata_file_extension}
+
+# File path outputs by run_id_outputs
+run_id_outputs_directory_path: ${paths.directories.outputs}/${setup.script_base_name}/.${run_id_outputs}

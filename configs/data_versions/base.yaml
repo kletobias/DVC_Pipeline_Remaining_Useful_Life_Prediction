@@ -1,0 +1,10 @@
+# configs/data_versions/base.yaml
+name: turbofan_engine_degradation_simulation_dataset
+data_version_input: v0
+data_version_output: ${.data_version_input}
+description: |
+            dataset name: `turbofan_engine_degradation_simulation_dataset`
+            Original, unmodified data, as downloaded from kaggle.
+            See 'dataset_url' for further information.
+
+dataset_url: 'https://www.kaggle.com/datasets/syahrulhamdani/turbofan-engine-degradation-simulation-dataset'

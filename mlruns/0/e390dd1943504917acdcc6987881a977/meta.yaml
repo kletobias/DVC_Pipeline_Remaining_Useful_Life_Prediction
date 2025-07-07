@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/0/e390dd1943504917acdcc6987881a977/artifacts
+end_time: 1748343026803
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e390dd1943504917acdcc6987881a977
+run_name: popular-midge-432
+run_uuid: e390dd1943504917acdcc6987881a977
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748343012159
+status: 3
+tags: []
+user_id: tobias

@@ -1,0 +1,39 @@
+{# dvc_template.yaml.j2 #}
+{%- raw -%}
+stages:
+{%- endraw %}
+{%- for stage in stages %}
+  {{ stage.name }}:
+    cmd: {{ stage.cmd_python }} {{ stage.script }}{% if stage.overrides %}{{ ' ' ~ stage.overrides }}{% endif %}
+{%- if stage.desc %}
+    desc: "{{ stage.desc }}"
+{%- endif %}
+{%- if stage.frozen %}
+    frozen: true
+{%- endif %}
+    deps:{% if stage.deps|length == 0 %} []{% else %}
+{%- for dep in stage.deps %}
+      - {{ dep }}
+{%- endfor -%}
+{% endif %}
+    outs:{% if stage.outs|length == 0 %} []{% else %}
+{%- for out in stage.outs %}
+      - {{ out }}
+{%- endfor -%}
+{% endif %}
+{%- if not loop.last %}
+
+{%- endif %}
+{% endfor %}
+
+{%- if plots %}
+plots:
+{%- for plot_dict in plots %}
+{%- for key, subdict in plot_dict.items() %}
+  - {{ key }}:
+{%- for subkey, subvalue in subdict.items() %}
+      {{ subkey }}: {{ subvalue }}
+{%- endfor %}
+{%- endfor %}
+{%- endfor %}
+{%- endif %}

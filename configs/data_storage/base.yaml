@@ -1,0 +1,14 @@
+split: ""
+suffix: ""
+input_file_extension: parquet
+output_file_extension: ${.input_file_extension}
+input_file_path: ""
+output_file_path: ""
+input_metadata_file_extension: json
+output_metadata_file_extension: ${.input_metadata_file_extension}
+input_params_file_extension: yaml
+input_metadata_file_path: ""
+output_metadata_file_path: ""
+output_params_file_extension: ${.input_params_file_extension}
+input_params_file_path: ${paths.directories.params_transformations}/${datasets.dataset.directory_name}/${data_versions.data_version_input}/${data_versions.data_version_input}_params.${data_storage.input_params_file_extension}
+output_params_file_path: ${paths.directories.params_transformations}/${datasets.dataset.directory_name}/${data_versions.data_version_output}/${data_versions.data_version_output}_params.${data_storage.output_params_file_extension}

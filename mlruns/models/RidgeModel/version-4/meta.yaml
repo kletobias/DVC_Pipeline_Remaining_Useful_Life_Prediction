@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1748420211824
+current_stage: None
+description: null
+last_updated_timestamp: 1748420211824
+name: RidgeModel
+run_id: 9dfd6b89dab34412972da8f13f8c66e7
+run_link: null
+source: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/219148870245185486/9dfd6b89dab34412972da8f13f8c66e7/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/219148870245185486/9dfd6b89dab34412972da8f13f8c66e7/artifacts/model
+user_id: null
+version: 4

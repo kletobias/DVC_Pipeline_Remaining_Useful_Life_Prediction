@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/0/b7eb3d62a54040e7b189eed581a5cfd7/artifacts
+end_time: 1748419605347
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b7eb3d62a54040e7b189eed581a5cfd7
+run_name: burly-ape-28
+run_uuid: b7eb3d62a54040e7b189eed581a5cfd7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748419583915
+status: 3
+tags: []
+user_id: tobias

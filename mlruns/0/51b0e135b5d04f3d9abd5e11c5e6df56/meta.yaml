@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/0/51b0e135b5d04f3d9abd5e11c5e6df56/artifacts
+end_time: 1748419553635
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 51b0e135b5d04f3d9abd5e11c5e6df56
+run_name: bedecked-perch-131
+run_uuid: 51b0e135b5d04f3d9abd5e11c5e6df56
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748419550395
+status: 3
+tags: []
+user_id: tobias

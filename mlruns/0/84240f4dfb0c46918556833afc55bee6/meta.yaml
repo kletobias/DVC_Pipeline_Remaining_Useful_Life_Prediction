@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/0/84240f4dfb0c46918556833afc55bee6/artifacts
+end_time: 1748419579958
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 84240f4dfb0c46918556833afc55bee6
+run_name: fortunate-quail-549
+run_uuid: 84240f4dfb0c46918556833afc55bee6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748419550384
+status: 3
+tags: []
+user_id: tobias

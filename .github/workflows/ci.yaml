@@ -1,0 +1,28 @@
+# .github/workflows/reproduce_simulate_inference_mlflow.yml
+name: reproduce-simulate_inference_mlflow
+
+on: [push, pull_request]
+
+env:
+  PROJECT_ROOT: ${{ github.workspace }}
+  CMD_PYTHON: python
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Reproduce stage
+        run: dvc repro -s -f simulate_inference_mlflow

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/0/960fbc28c05844c5a879a14012d8e447/artifacts
+end_time: 1748342450322
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 960fbc28c05844c5a879a14012d8e447
+run_name: debonair-mouse-492
+run_uuid: 960fbc28c05844c5a879a14012d8e447
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748342435903
+status: 3
+tags: []
+user_id: tobias

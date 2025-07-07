@@ -1,0 +1,8 @@
+# configs/test_params/base.yaml
+required_columns:
+  - Mach
+  - RUL
+  - unit
+
+row_count_train: 5263447
+row_count_test: 1253743

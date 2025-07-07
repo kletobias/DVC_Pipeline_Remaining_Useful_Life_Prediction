@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/0/79b644c174a5479d8f3713f2559404e1/artifacts
+end_time: 1748338345747
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 79b644c174a5479d8f3713f2559404e1
+run_name: angry-moth-756
+run_uuid: 79b644c174a5479d8f3713f2559404e1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748338332543
+status: 3
+tags: []
+user_id: tobias
