@@ -5,8 +5,16 @@ This stub imports the proprietary implementation from the rul-core-ip package.
 
 import sys
 
+import hydra
+from omegaconf import DictConfig
+
 try:
-    from rul_core_ip.inference import main
+    from rul_core_ip.inference import run_inference
+
+    @hydra.main(version_base=None, config_path="../configs/inference", config_name="cv")
+    def main(cfg: DictConfig) -> None:
+        """Main entry point for Hydra config handling."""
+        run_inference(cfg)
 
     if __name__ == "__main__":
         sys.exit(main())

@@ -6,7 +6,6 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import boto3
-import hydra
 import joblib
 import mlflow
 import numpy as np
@@ -125,12 +124,8 @@ def simulate_inference_mlflow(
     logger.info("inference completed")
 
 
-@hydra.main(
-    version_base=None,
-    config_path="../../../../../../configs/inference",
-    config_name="cv",
-)
-def main(cfg: DictConfig) -> None:
+def run_inference(cfg: DictConfig) -> None:
+    """Run the inference pipeline with the given configuration."""
     project_root = Path(os.getenv("PROJECT_ROOT", "."))
     run_cfg = cfg.simulate_inference_mlflow
     if cfg.get("use_aws", False):
@@ -178,5 +173,4 @@ def main(cfg: DictConfig) -> None:
     )
 
 
-if __name__ == "__main__":
-    main()
+# Entry point moved to bin/simulate_inference_cv.py stub
