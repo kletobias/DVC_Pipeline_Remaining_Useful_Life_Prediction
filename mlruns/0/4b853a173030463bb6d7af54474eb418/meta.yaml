@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/0/4b853a173030463bb6d7af54474eb418/artifacts
+end_time: 1748419553325
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4b853a173030463bb6d7af54474eb418
+run_name: sneaky-bear-386
+run_uuid: 4b853a173030463bb6d7af54474eb418
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748419550391
+status: 3
+tags: []
+user_id: tobias

@@ -1,0 +1,30 @@
+# Core scientific & ML stack
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+plotly
+statsmodels
+
+# MLOps / config
+hydra-core
+omegaconf
+optuna
+mlflow
+dvc[s3]
+
+# Cloud & DevOps
+awscli
+boto3
+terraform-external-data   # keeps pip resolver happy; real CLI installed in setup.sh
+
+# Utilities
+jinja2
+jinja2-humanize-extension
+rich
+tqdm
+typer
+ipykernel
+pre-commit

@@ -1,0 +1,33 @@
+# configs/transformations/ridge_optuna_trial.yaml
+defaults:
+  - base
+  - /model_params: ridge_optuna_trial_params
+  - _self_
+
+return_type: null
+
+ridge_optuna_trial:
+  target_col: ${ml_experiments.target_col_modeling}
+  train_file_path: ${ml_experiments.train_file_path}
+  test_file_path: ${ml_experiments.test_file_path}
+  experiment_name: ${ml_experiments.experiment_prefix}
+  n_trials: 10
+  permutation_importances_filename: ${ml_experiments.permutation_importances_filename}
+  hyperparameters: ${model_params.hyperparameters}
+  n_jobs_study: 5
+  n_jobs_cv: 1
+  random_state: ${rng_seed}
+  experiment_tags:
+    random_state_tag: ${rng_seed}
+    experiment_id_tag: ${ml_experiments.experiment_id}
+    experiment_prefix_tag: ${ml_experiments.experiment_prefix}
+    run_id_tag: ${run_id_outputs}
+    train_file_path: ${ml_experiments.train_file_path}
+    test_file_path: ${ml_experiments.test_file_path}
+    data_version_tag: ${data_versions.data_version_input}
+    direction_tag: ${ml_experiments.direction}
+    model_tag: Ridge
+    num_trials_tag: ${..n_trials}
+    n_jobs_study_tag: ${..n_jobs_study}
+    n_jobs_cv_tag: ${..n_jobs_cv}
+    cv_type_tag: LeaveOneGroupOut

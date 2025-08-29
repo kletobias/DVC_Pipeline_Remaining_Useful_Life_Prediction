@@ -1,0 +1,5 @@
+check_required_columns:
+  required_columns: ${data_split.required_columns}
+
+check_row_count:
+  row_count: ${data_split.row_count}

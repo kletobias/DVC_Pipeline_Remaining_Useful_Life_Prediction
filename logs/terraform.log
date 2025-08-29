@@ -1,0 +1,2249 @@
+Initializing the backend...
+
+Successfully configured the backend "local"! Terraform will automatically
+use this backend unless the backend configuration changes.
+Initializing modules...
+Downloading git::https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v3.15.2 for dvc_bucket...
+- dvc_bucket in .terraform/modules/dvc_bucket
+Downloading git::https://github.com/terraform-aws-modules/terraform-aws-ecs.git?ref=v5.9.3 for inference_cluster...
+- inference_cluster in .terraform/modules/inference_cluster
+- inference_cluster.cluster in .terraform/modules/inference_cluster/modules/cluster
+- inference_cluster.service in .terraform/modules/inference_cluster/modules/service
+- inference_cluster.service.container_definition in .terraform/modules/inference_cluster/modules/container-definition
+Downloading git::https://github.com/terraform-aws-modules/terraform-aws-ecs.git?ref=v5.9.3 for inference_service...
+- inference_service in .terraform/modules/inference_service/modules/service
+- inference_service.container_definition in .terraform/modules/inference_service/modules/container-definition
+Downloading git::https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v3.15.2 for mlflow_bucket...
+- mlflow_bucket in .terraform/modules/mlflow_bucket
+Downloading git::https://github.com/terraform-aws-modules/terraform-aws-ecs.git?ref=v5.9.3 for mlflow_cluster...
+- mlflow_cluster in .terraform/modules/mlflow_cluster
+- mlflow_cluster.cluster in .terraform/modules/mlflow_cluster/modules/cluster
+- mlflow_cluster.service in .terraform/modules/mlflow_cluster/modules/service
+- mlflow_cluster.service.container_definition in .terraform/modules/mlflow_cluster/modules/container-definition
+Downloading git::https://github.com/terraform-aws-modules/terraform-aws-ecs.git?ref=v5.9.3 for mlflow_service...
+- mlflow_service in .terraform/modules/mlflow_service/modules/service
+- mlflow_service.container_definition in .terraform/modules/mlflow_service/modules/container-definition
+Downloading git::https://github.com/terraform-aws-modules/terraform-aws-vpc.git?ref=v5.9.0 for vpc...
+- vpc in .terraform/modules/vpc
+Initializing provider plugins...
+- Reusing previous version of hashicorp/aws from the dependency lock file
+- Installing hashicorp/aws v5.99.1...
+- Installed hashicorp/aws v5.99.1 (signed by HashiCorp)
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+
+Error: Failed to parse command-line flags
+
+flag provided but not defined: -y
+
+For more help on using this command, run:
+  terraform apply -help
+module.inference_service.data.aws_caller_identity.current: Reading...
+module.mlflow_service.data.aws_partition.current: Reading...
+module.inference_cluster.module.cluster.aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/rul-demo-infer-cluster]
+module.mlflow_service.data.aws_region.current: Reading...
+module.mlflow_bucket.data.aws_region.current: Reading...
+module.mlflow_service.data.aws_iam_policy_document.task_exec[0]: Reading...
+aws_ecr_repository.ridge: Refreshing state... [id=rul-demo-ridge]
+module.mlflow_bucket.data.aws_partition.current: Reading...
+module.dvc_bucket.data.aws_partition.current: Reading...
+module.mlflow_service.data.aws_iam_policy_document.task_exec_assume[0]: Reading...
+module.mlflow_service.data.aws_partition.current: Read complete after 0s [id=aws]
+module.mlflow_bucket.data.aws_partition.current: Read complete after 0s [id=aws]
+module.mlflow_bucket.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.data.aws_iam_policy_document.task_exec_assume[0]: Read complete after 0s [id=2291109037]
+module.mlflow_bucket.data.aws_caller_identity.current: Reading...
+module.inference_service.data.aws_partition.current: Reading...
+module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-066c89a5ad8d76c78]
+module.dvc_bucket.data.aws_partition.current: Read complete after 0s [id=aws]
+module.mlflow_cluster.module.cluster.aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/rul-demo-mlflow-cluster]
+module.dvc_bucket.data.aws_caller_identity.current: Reading...
+module.mlflow_service.data.aws_caller_identity.current: Reading...
+module.inference_service.data.aws_partition.current: Read complete after 0s [id=aws]
+module.mlflow_service.data.aws_iam_policy_document.task_exec[0]: Read complete after 0s [id=1415633931]
+module.dvc_bucket.aws_s3_bucket.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.mlflow_bucket.aws_s3_bucket.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.dvc_bucket.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.mlflow_service.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.mlflow_bucket.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.inference_service.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.dvc_bucket.data.aws_region.current: Reading...
+module.inference_service.data.aws_region.current: Reading...
+module.inference_service.data.aws_iam_policy_document.task_exec[0]: Reading...
+module.inference_service.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.dvc_bucket.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.data.aws_iam_policy_document.task_exec[0]: Read complete after 0s [id=1415633931]
+module.inference_service.data.aws_iam_policy_document.task_exec_assume[0]: Reading...
+module.mlflow_service.aws_iam_role.task_exec[0]: Refreshing state... [id=mlflow-20250606082003848500000002]
+module.inference_service.data.aws_iam_policy_document.task_exec_assume[0]: Read complete after 0s [id=2291109037]
+module.mlflow_service.aws_iam_policy.task_exec[0]: Refreshing state... [id=arn:aws:iam::513065063624:policy/mlflow-20250606082003849500000003]
+module.inference_service.aws_iam_policy.task_exec[0]: Refreshing state... [id=arn:aws:iam::513065063624:policy/ridge-infer-20250606082003848200000001]
+module.mlflow_service.data.aws_iam_policy_document.tasks_assume[0]: Reading...
+module.mlflow_service.data.aws_iam_policy_document.tasks_assume[0]: Read complete after 0s [id=132632415]
+module.inference_service.aws_iam_role.task_exec[0]: Refreshing state... [id=ridge-infer-20250606082003849800000004]
+module.inference_service.data.aws_iam_policy_document.tasks_assume[0]: Reading...
+module.inference_service.data.aws_iam_policy_document.tasks_assume[0]: Read complete after 0s [id=132632415]
+module.mlflow_service.aws_iam_role.tasks[0]: Refreshing state... [id=mlflow-20250606082004047000000005]
+module.inference_service.aws_iam_role.tasks[0]: Refreshing state... [id=ridge-infer-20250606082004070000000006]
+module.mlflow_cluster.module.cluster.aws_ecs_cluster.this[0]: Refreshing state... [id=arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-mlflow-cluster]
+module.inference_cluster.module.cluster.aws_ecs_cluster.this[0]: Refreshing state... [id=arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-infer-cluster]
+module.mlflow_bucket.aws_s3_bucket_versioning.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.mlflow_bucket.aws_s3_bucket_public_access_block.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.mlflow_bucket.aws_s3_bucket_server_side_encryption_configuration.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.inference_service.module.container_definition["name"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["image"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["image"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["name"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["logConfiguration"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["essential"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["essential"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["logConfiguration"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.dvc_bucket.aws_s3_bucket_versioning.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.dvc_bucket.aws_s3_bucket_public_access_block.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.dvc_bucket.aws_s3_bucket_server_side_encryption_configuration.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.inference_service.module.container_definition["image"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/image]
+module.inference_service.module.container_definition["name"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/name]
+module.inference_service.module.container_definition["essential"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/essential]
+module.inference_service.module.container_definition["logConfiguration"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/logConfiguration]
+module.vpc.aws_default_route_table.default[0]: Refreshing state... [id=rtb-0b76aabcfe213227c]
+module.vpc.aws_default_security_group.this[0]: Refreshing state... [id=sg-0392209c9a8c41ecc]
+module.vpc.aws_default_network_acl.this[0]: Refreshing state... [id=acl-0a77d3e0c7a15cbe9]
+module.mlflow_service.module.container_definition["image"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["image"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["logConfiguration"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["logConfiguration"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["command"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["command"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["name"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["name"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["environment"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["environment"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["essential"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["essential"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["portMappings"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["portMappings"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-03deb630aafe36383]
+module.vpc.aws_subnet.public[1]: Refreshing state... [id=subnet-00b0d556a7ed3b510]
+module.vpc.aws_route_table.private[1]: Refreshing state... [id=rtb-06253b5856a9eb86e]
+module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-08a26ceaa42d9b0d6]
+module.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-0261b89bc5b0e2a21]
+module.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-022ea988590b25dc0]
+module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-0789d6af500ac05e1]
+module.vpc.aws_subnet.private[1]: Refreshing state... [id=subnet-08d7eee552492658f]
+module.mlflow_service.aws_iam_role_policy_attachment.task_exec[0]: Refreshing state... [id=mlflow-20250606082003848500000002-20250606082005033100000008]
+module.inference_service.aws_iam_role_policy_attachment.task_exec[0]: Refreshing state... [id=ridge-infer-20250606082003849800000004-20250606082004997900000007]
+module.mlflow_service.module.container_definition["command"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/command]
+module.mlflow_service.module.container_definition["environment"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/environment]
+module.mlflow_service.module.container_definition["image"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/image]
+module.mlflow_service.module.container_definition["logConfiguration"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/logConfiguration]
+module.mlflow_service.module.container_definition["name"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/name]
+module.mlflow_service.module.container_definition["essential"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/essential]
+module.mlflow_service.module.container_definition["portMappings"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/portMappings]
+module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-022ea988590b25dc01080289494]
+module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-09da8ed0be2bccd4f]
+module.vpc.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-092e2e648e1d69241]
+module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-06c5fbb8ba9353ece]
+module.vpc.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-0a19f6c9eeae9e284]
+module.inference_service.data.aws_subnet.this[0]: Reading...
+module.mlflow_service.data.aws_subnet.this[0]: Reading...
+module.inference_service.data.aws_subnet.this[0]: Read complete after 0s [id=subnet-0789d6af500ac05e1]
+module.inference_service.aws_security_group.this[0]: Refreshing state... [id=sg-0478efd11b1a3cbb5]
+module.mlflow_service.data.aws_subnet.this[0]: Read complete after 0s [id=subnet-0789d6af500ac05e1]
+module.mlflow_service.aws_security_group.this[0]: Refreshing state... [id=sg-0bd17505985134f4c]
+module.dvc_bucket.aws_s3_bucket_lifecycle_configuration.this[0]: Refreshing state... [id=rul-demo-dvc]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # module.inference_service.data.aws_ecs_task_definition.this[0] will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = (known after apply)
+      + cpu                      = (known after apply)
+      + enable_fault_injection   = (known after apply)
+      + ephemeral_storage        = (known after apply)
+      + execution_role_arn       = (known after apply)
+      + family                   = (known after apply)
+      + id                       = (known after apply)
+      + inference_accelerator    = (known after apply)
+      + ipc_mode                 = (known after apply)
+      + memory                   = (known after apply)
+      + network_mode             = (known after apply)
+      + pid_mode                 = (known after apply)
+      + placement_constraints    = (known after apply)
+      + proxy_configuration      = (known after apply)
+      + requires_compatibilities = (known after apply)
+      + revision                 = (known after apply)
+      + runtime_platform         = (known after apply)
+      + status                   = (known after apply)
+      + task_definition          = "ridge-infer"
+      + task_role_arn            = (known after apply)
+      + volume                   = (known after apply)
+    }
+
+  # module.inference_service.aws_appautoscaling_policy.this["cpu"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "cpu"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-infer-cluster/ridge-infer"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageCPUUtilization"
+            }
+        }
+    }
+
+  # module.inference_service.aws_appautoscaling_policy.this["memory"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "memory"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-infer-cluster/ridge-infer"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageMemoryUtilization"
+            }
+        }
+    }
+
+  # module.inference_service.aws_appautoscaling_target.this[0] will be created
+  + resource "aws_appautoscaling_target" "this" {
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + max_capacity       = 10
+      + min_capacity       = 0
+      + resource_id        = "service/rul-demo-infer-cluster/ridge-infer"
+      + role_arn           = (known after apply)
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+      + tags_all           = (known after apply)
+
+      + suspended_state (known after apply)
+    }
+
+  # module.inference_service.aws_ecs_service.this[0] will be created
+  + resource "aws_ecs_service" "this" {
+      + availability_zone_rebalancing      = "DISABLED"
+      + cluster                            = "arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-infer-cluster"
+      + deployment_maximum_percent         = 200
+      + deployment_minimum_healthy_percent = 66
+      + desired_count                      = 0
+      + enable_ecs_managed_tags            = true
+      + enable_execute_command             = false
+      + force_new_deployment               = true
+      + iam_role                           = (known after apply)
+      + id                                 = (known after apply)
+      + launch_type                        = "FARGATE"
+      + name                               = "ridge-infer"
+      + platform_version                   = (known after apply)
+      + scheduling_strategy                = "REPLICA"
+      + tags_all                           = (known after apply)
+      + task_definition                    = (known after apply)
+      + triggers                           = (known after apply)
+      + wait_for_steady_state              = false
+
+      + network_configuration {
+          + assign_public_ip = false
+          + security_groups  = [
+              + "sg-0478efd11b1a3cbb5",
+            ]
+          + subnets          = [
+              + "subnet-0789d6af500ac05e1",
+              + "subnet-08d7eee552492658f",
+            ]
+        }
+
+      + timeouts {}
+    }
+
+  # module.inference_service.aws_ecs_task_definition.this[0] will be created
+  + resource "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = jsonencode(
+            [
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/essential"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "essential"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/image"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "image"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/logConfiguration"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "logConfiguration"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/name"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "name"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+            ]
+        )
+      + cpu                      = "512"
+      + enable_fault_injection   = (known after apply)
+      + execution_role_arn       = "arn:aws:iam::513065063624:role/ridge-infer-20250606082003849800000004"
+      + family                   = "ridge-infer"
+      + id                       = (known after apply)
+      + memory                   = "1024"
+      + network_mode             = "awsvpc"
+      + requires_compatibilities = [
+          + "FARGATE",
+        ]
+      + revision                 = (known after apply)
+      + skip_destroy             = false
+      + tags_all                 = (known after apply)
+      + task_role_arn            = "arn:aws:iam::513065063624:role/ridge-infer-20250606082004070000000006"
+      + track_latest             = false
+
+      + runtime_platform {
+          + cpu_architecture        = "X86_64"
+          + operating_system_family = "LINUX"
+        }
+    }
+
+  # module.mlflow_service.data.aws_ecs_task_definition.this[0] will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = (known after apply)
+      + cpu                      = (known after apply)
+      + enable_fault_injection   = (known after apply)
+      + ephemeral_storage        = (known after apply)
+      + execution_role_arn       = (known after apply)
+      + family                   = (known after apply)
+      + id                       = (known after apply)
+      + inference_accelerator    = (known after apply)
+      + ipc_mode                 = (known after apply)
+      + memory                   = (known after apply)
+      + network_mode             = (known after apply)
+      + pid_mode                 = (known after apply)
+      + placement_constraints    = (known after apply)
+      + proxy_configuration      = (known after apply)
+      + requires_compatibilities = (known after apply)
+      + revision                 = (known after apply)
+      + runtime_platform         = (known after apply)
+      + status                   = (known after apply)
+      + task_definition          = "mlflow"
+      + task_role_arn            = (known after apply)
+      + volume                   = (known after apply)
+    }
+
+  # module.mlflow_service.aws_appautoscaling_policy.this["cpu"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "cpu"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-mlflow-cluster/mlflow"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageCPUUtilization"
+            }
+        }
+    }
+
+  # module.mlflow_service.aws_appautoscaling_policy.this["memory"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "memory"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-mlflow-cluster/mlflow"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageMemoryUtilization"
+            }
+        }
+    }
+
+  # module.mlflow_service.aws_appautoscaling_target.this[0] will be created
+  + resource "aws_appautoscaling_target" "this" {
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + max_capacity       = 10
+      + min_capacity       = 0
+      + resource_id        = "service/rul-demo-mlflow-cluster/mlflow"
+      + role_arn           = (known after apply)
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+      + tags_all           = (known after apply)
+
+      + suspended_state (known after apply)
+    }
+
+  # module.mlflow_service.aws_ecs_service.this[0] will be created
+  + resource "aws_ecs_service" "this" {
+      + availability_zone_rebalancing      = "DISABLED"
+      + cluster                            = "arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-mlflow-cluster"
+      + deployment_maximum_percent         = 200
+      + deployment_minimum_healthy_percent = 66
+      + desired_count                      = 0
+      + enable_ecs_managed_tags            = true
+      + enable_execute_command             = false
+      + force_new_deployment               = true
+      + iam_role                           = (known after apply)
+      + id                                 = (known after apply)
+      + launch_type                        = "FARGATE"
+      + name                               = "mlflow"
+      + platform_version                   = (known after apply)
+      + scheduling_strategy                = "REPLICA"
+      + tags_all                           = (known after apply)
+      + task_definition                    = (known after apply)
+      + triggers                           = (known after apply)
+      + wait_for_steady_state              = false
+
+      + network_configuration {
+          + assign_public_ip = false
+          + security_groups  = [
+              + "sg-0bd17505985134f4c",
+            ]
+          + subnets          = [
+              + "subnet-0789d6af500ac05e1",
+              + "subnet-08d7eee552492658f",
+            ]
+        }
+
+      + timeouts {}
+    }
+
+  # module.mlflow_service.aws_ecs_task_definition.this[0] will be created
+  + resource "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = jsonencode(
+            [
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/command"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "command"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/environment"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "environment"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/essential"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "essential"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/image"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "image"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/logConfiguration"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "logConfiguration"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/name"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "name"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/portMappings"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "portMappings"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+            ]
+        )
+      + cpu                      = "512"
+      + enable_fault_injection   = (known after apply)
+      + execution_role_arn       = "arn:aws:iam::513065063624:role/mlflow-20250606082003848500000002"
+      + family                   = "mlflow"
+      + id                       = (known after apply)
+      + memory                   = "1024"
+      + network_mode             = "awsvpc"
+      + requires_compatibilities = [
+          + "FARGATE",
+        ]
+      + revision                 = (known after apply)
+      + skip_destroy             = false
+      + tags_all                 = (known after apply)
+      + task_role_arn            = "arn:aws:iam::513065063624:role/mlflow-20250606082004047000000005"
+      + track_latest             = false
+
+      + runtime_platform {
+          + cpu_architecture        = "X86_64"
+          + operating_system_family = "LINUX"
+        }
+    }
+
+Plan: 10 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + inference_service_arn    = (known after apply)
+  + mlflow_service_arn       = (known after apply)
+
+Warning: Value for undeclared variable
+
+The root module does not declare a variable named "aws_account_id" but a
+value was found in file "terraform.tfvars". If you meant to use this value,
+add a "variable" block to the configuration.
+
+To silence these warnings, use TF_VAR_... environment variables to provide
+certain "global" settings to all configurations in your organization. To
+reduce the verbosity of these warnings, use the -compact-warnings option.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: 
+
+Error: error asking for approval: interrupted
+
+
+Interrupt received.
+Please wait for Terraform to exit or data loss may occur.
+Gracefully shutting down...
+
+module.mlflow_service.data.aws_iam_policy_document.task_exec[0]: Reading...
+module.mlflow_service.data.aws_iam_policy_document.task_exec_assume[0]: Reading...
+module.mlflow_service.data.aws_partition.current: Reading...
+module.mlflow_service.data.aws_caller_identity.current: Reading...
+module.inference_service.data.aws_partition.current: Reading...
+module.mlflow_bucket.data.aws_partition.current: Reading...
+module.inference_service.data.aws_region.current: Reading...
+module.inference_cluster.module.cluster.aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/rul-demo-infer-cluster]
+module.mlflow_bucket.aws_s3_bucket.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.dvc_bucket.aws_s3_bucket.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.inference_service.data.aws_partition.current: Read complete after 0s [id=aws]
+module.mlflow_service.data.aws_iam_policy_document.task_exec_assume[0]: Read complete after 0s [id=2291109037]
+module.mlflow_service.data.aws_partition.current: Read complete after 0s [id=aws]
+module.mlflow_service.data.aws_iam_policy_document.task_exec[0]: Read complete after 0s [id=1415633931]
+module.mlflow_bucket.data.aws_partition.current: Read complete after 0s [id=aws]
+module.inference_service.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_cluster.module.cluster.aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/rul-demo-mlflow-cluster]
+module.dvc_bucket.data.aws_caller_identity.current: Reading...
+module.dvc_bucket.data.aws_partition.current: Reading...
+module.inference_service.data.aws_iam_policy_document.task_exec_assume[0]: Reading...
+module.mlflow_bucket.data.aws_caller_identity.current: Reading...
+module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-066c89a5ad8d76c78]
+module.inference_service.data.aws_iam_policy_document.task_exec_assume[0]: Read complete after 0s [id=2291109037]
+module.dvc_bucket.data.aws_partition.current: Read complete after 0s [id=aws]
+module.inference_service.data.aws_caller_identity.current: Reading...
+aws_ecr_repository.ridge: Refreshing state... [id=rul-demo-ridge]
+module.mlflow_service.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.mlflow_bucket.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.mlflow_bucket.data.aws_region.current: Reading...
+module.mlflow_service.data.aws_region.current: Reading...
+module.mlflow_bucket.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.dvc_bucket.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.mlflow_service.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.dvc_bucket.data.aws_region.current: Reading...
+module.inference_service.data.aws_iam_policy_document.task_exec[0]: Reading...
+module.dvc_bucket.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.data.aws_iam_policy_document.task_exec[0]: Read complete after 0s [id=1415633931]
+module.mlflow_service.aws_iam_role.task_exec[0]: Refreshing state... [id=mlflow-20250606082003848500000002]
+module.mlflow_service.aws_iam_policy.task_exec[0]: Refreshing state... [id=arn:aws:iam::513065063624:policy/mlflow-20250606082003849500000003]
+module.inference_service.aws_iam_role.task_exec[0]: Refreshing state... [id=ridge-infer-20250606082003849800000004]
+module.inference_service.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.inference_service.aws_iam_policy.task_exec[0]: Refreshing state... [id=arn:aws:iam::513065063624:policy/ridge-infer-20250606082003848200000001]
+module.mlflow_service.data.aws_iam_policy_document.tasks_assume[0]: Reading...
+module.mlflow_service.data.aws_iam_policy_document.tasks_assume[0]: Read complete after 0s [id=132632415]
+module.inference_service.data.aws_iam_policy_document.tasks_assume[0]: Reading...
+module.inference_service.data.aws_iam_policy_document.tasks_assume[0]: Read complete after 0s [id=132632415]
+module.mlflow_cluster.module.cluster.aws_ecs_cluster.this[0]: Refreshing state... [id=arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-mlflow-cluster]
+module.mlflow_service.aws_iam_role.tasks[0]: Refreshing state... [id=mlflow-20250606082004047000000005]
+module.inference_cluster.module.cluster.aws_ecs_cluster.this[0]: Refreshing state... [id=arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-infer-cluster]
+module.inference_service.aws_iam_role.tasks[0]: Refreshing state... [id=ridge-infer-20250606082004070000000006]
+module.inference_service.module.container_definition["image"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["image"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["essential"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["essential"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["name"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["name"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["logConfiguration"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["logConfiguration"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["name"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/name]
+module.inference_service.module.container_definition["image"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/image]
+module.inference_service.module.container_definition["essential"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/essential]
+module.inference_service.module.container_definition["logConfiguration"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/logConfiguration]
+module.mlflow_bucket.aws_s3_bucket_versioning.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.mlflow_bucket.aws_s3_bucket_public_access_block.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.mlflow_bucket.aws_s3_bucket_server_side_encryption_configuration.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.dvc_bucket.aws_s3_bucket_server_side_encryption_configuration.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.dvc_bucket.aws_s3_bucket_public_access_block.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.dvc_bucket.aws_s3_bucket_versioning.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.mlflow_service.module.container_definition["portMappings"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["portMappings"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["command"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["command"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["essential"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["essential"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["name"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["name"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["environment"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["environment"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["image"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["image"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["logConfiguration"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["logConfiguration"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["essential"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/essential]
+module.mlflow_service.module.container_definition["command"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/command]
+module.mlflow_service.module.container_definition["image"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/image]
+module.mlflow_service.module.container_definition["environment"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/environment]
+module.mlflow_service.module.container_definition["logConfiguration"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/logConfiguration]
+module.mlflow_service.module.container_definition["name"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/name]
+module.mlflow_service.module.container_definition["portMappings"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/portMappings]
+module.vpc.aws_default_network_acl.this[0]: Refreshing state... [id=acl-0a77d3e0c7a15cbe9]
+module.vpc.aws_default_route_table.default[0]: Refreshing state... [id=rtb-0b76aabcfe213227c]
+module.vpc.aws_default_security_group.this[0]: Refreshing state... [id=sg-0392209c9a8c41ecc]
+module.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-0261b89bc5b0e2a21]
+module.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-022ea988590b25dc0]
+module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-03deb630aafe36383]
+module.vpc.aws_subnet.public[1]: Refreshing state... [id=subnet-00b0d556a7ed3b510]
+module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-08a26ceaa42d9b0d6]
+module.vpc.aws_route_table.private[1]: Refreshing state... [id=rtb-06253b5856a9eb86e]
+module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-0789d6af500ac05e1]
+module.vpc.aws_subnet.private[1]: Refreshing state... [id=subnet-08d7eee552492658f]
+module.mlflow_service.aws_iam_role_policy_attachment.task_exec[0]: Refreshing state... [id=mlflow-20250606082003848500000002-20250606082005033100000008]
+module.inference_service.aws_iam_role_policy_attachment.task_exec[0]: Refreshing state... [id=ridge-infer-20250606082003849800000004-20250606082004997900000007]
+module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-022ea988590b25dc01080289494]
+module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-09da8ed0be2bccd4f]
+module.vpc.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-092e2e648e1d69241]
+module.vpc.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-0a19f6c9eeae9e284]
+module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-06c5fbb8ba9353ece]
+module.inference_service.data.aws_subnet.this[0]: Reading...
+module.mlflow_service.data.aws_subnet.this[0]: Reading...
+module.mlflow_service.data.aws_subnet.this[0]: Read complete after 0s [id=subnet-0789d6af500ac05e1]
+module.mlflow_service.aws_security_group.this[0]: Refreshing state... [id=sg-0bd17505985134f4c]
+module.inference_service.data.aws_subnet.this[0]: Read complete after 0s [id=subnet-0789d6af500ac05e1]
+module.inference_service.aws_security_group.this[0]: Refreshing state... [id=sg-0478efd11b1a3cbb5]
+module.dvc_bucket.aws_s3_bucket_lifecycle_configuration.this[0]: Refreshing state... [id=rul-demo-dvc]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # module.inference_service.data.aws_ecs_task_definition.this[0] will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = (known after apply)
+      + cpu                      = (known after apply)
+      + enable_fault_injection   = (known after apply)
+      + ephemeral_storage        = (known after apply)
+      + execution_role_arn       = (known after apply)
+      + family                   = (known after apply)
+      + id                       = (known after apply)
+      + inference_accelerator    = (known after apply)
+      + ipc_mode                 = (known after apply)
+      + memory                   = (known after apply)
+      + network_mode             = (known after apply)
+      + pid_mode                 = (known after apply)
+      + placement_constraints    = (known after apply)
+      + proxy_configuration      = (known after apply)
+      + requires_compatibilities = (known after apply)
+      + revision                 = (known after apply)
+      + runtime_platform         = (known after apply)
+      + status                   = (known after apply)
+      + task_definition          = "ridge-infer"
+      + task_role_arn            = (known after apply)
+      + volume                   = (known after apply)
+    }
+
+  # module.inference_service.aws_appautoscaling_policy.this["cpu"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "cpu"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-infer-cluster/ridge-infer"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageCPUUtilization"
+            }
+        }
+    }
+
+  # module.inference_service.aws_appautoscaling_policy.this["memory"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "memory"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-infer-cluster/ridge-infer"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageMemoryUtilization"
+            }
+        }
+    }
+
+  # module.inference_service.aws_appautoscaling_target.this[0] will be created
+  + resource "aws_appautoscaling_target" "this" {
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + max_capacity       = 10
+      + min_capacity       = 0
+      + resource_id        = "service/rul-demo-infer-cluster/ridge-infer"
+      + role_arn           = (known after apply)
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+      + tags_all           = (known after apply)
+
+      + suspended_state (known after apply)
+    }
+
+  # module.inference_service.aws_ecs_service.this[0] will be created
+  + resource "aws_ecs_service" "this" {
+      + availability_zone_rebalancing      = "DISABLED"
+      + cluster                            = "arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-infer-cluster"
+      + deployment_maximum_percent         = 200
+      + deployment_minimum_healthy_percent = 66
+      + desired_count                      = 0
+      + enable_ecs_managed_tags            = true
+      + enable_execute_command             = false
+      + force_new_deployment               = true
+      + iam_role                           = (known after apply)
+      + id                                 = (known after apply)
+      + launch_type                        = "FARGATE"
+      + name                               = "ridge-infer"
+      + platform_version                   = (known after apply)
+      + scheduling_strategy                = "REPLICA"
+      + tags_all                           = (known after apply)
+      + task_definition                    = (known after apply)
+      + triggers                           = (known after apply)
+      + wait_for_steady_state              = false
+
+      + network_configuration {
+          + assign_public_ip = false
+          + security_groups  = [
+              + "sg-0478efd11b1a3cbb5",
+            ]
+          + subnets          = [
+              + "subnet-0789d6af500ac05e1",
+              + "subnet-08d7eee552492658f",
+            ]
+        }
+
+      + timeouts {}
+    }
+
+  # module.inference_service.aws_ecs_task_definition.this[0] will be created
+  + resource "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = jsonencode(
+            [
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/essential"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "essential"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/image"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "image"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/logConfiguration"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "logConfiguration"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/name"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "name"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+            ]
+        )
+      + cpu                      = "512"
+      + enable_fault_injection   = (known after apply)
+      + execution_role_arn       = "arn:aws:iam::513065063624:role/ridge-infer-20250606082003849800000004"
+      + family                   = "ridge-infer"
+      + id                       = (known after apply)
+      + memory                   = "1024"
+      + network_mode             = "awsvpc"
+      + requires_compatibilities = [
+          + "FARGATE",
+        ]
+      + revision                 = (known after apply)
+      + skip_destroy             = false
+      + tags_all                 = (known after apply)
+      + task_role_arn            = "arn:aws:iam::513065063624:role/ridge-infer-20250606082004070000000006"
+      + track_latest             = false
+
+      + runtime_platform {
+          + cpu_architecture        = "X86_64"
+          + operating_system_family = "LINUX"
+        }
+    }
+
+  # module.mlflow_service.data.aws_ecs_task_definition.this[0] will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = (known after apply)
+      + cpu                      = (known after apply)
+      + enable_fault_injection   = (known after apply)
+      + ephemeral_storage        = (known after apply)
+      + execution_role_arn       = (known after apply)
+      + family                   = (known after apply)
+      + id                       = (known after apply)
+      + inference_accelerator    = (known after apply)
+      + ipc_mode                 = (known after apply)
+      + memory                   = (known after apply)
+      + network_mode             = (known after apply)
+      + pid_mode                 = (known after apply)
+      + placement_constraints    = (known after apply)
+      + proxy_configuration      = (known after apply)
+      + requires_compatibilities = (known after apply)
+      + revision                 = (known after apply)
+      + runtime_platform         = (known after apply)
+      + status                   = (known after apply)
+      + task_definition          = "mlflow"
+      + task_role_arn            = (known after apply)
+      + volume                   = (known after apply)
+    }
+
+  # module.mlflow_service.aws_appautoscaling_policy.this["cpu"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "cpu"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-mlflow-cluster/mlflow"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageCPUUtilization"
+            }
+        }
+    }
+
+  # module.mlflow_service.aws_appautoscaling_policy.this["memory"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "memory"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-mlflow-cluster/mlflow"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageMemoryUtilization"
+            }
+        }
+    }
+
+  # module.mlflow_service.aws_appautoscaling_target.this[0] will be created
+  + resource "aws_appautoscaling_target" "this" {
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + max_capacity       = 10
+      + min_capacity       = 0
+      + resource_id        = "service/rul-demo-mlflow-cluster/mlflow"
+      + role_arn           = (known after apply)
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+      + tags_all           = (known after apply)
+
+      + suspended_state (known after apply)
+    }
+
+  # module.mlflow_service.aws_ecs_service.this[0] will be created
+  + resource "aws_ecs_service" "this" {
+      + availability_zone_rebalancing      = "DISABLED"
+      + cluster                            = "arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-mlflow-cluster"
+      + deployment_maximum_percent         = 200
+      + deployment_minimum_healthy_percent = 66
+      + desired_count                      = 0
+      + enable_ecs_managed_tags            = true
+      + enable_execute_command             = false
+      + force_new_deployment               = true
+      + iam_role                           = (known after apply)
+      + id                                 = (known after apply)
+      + launch_type                        = "FARGATE"
+      + name                               = "mlflow"
+      + platform_version                   = (known after apply)
+      + scheduling_strategy                = "REPLICA"
+      + tags_all                           = (known after apply)
+      + task_definition                    = (known after apply)
+      + triggers                           = (known after apply)
+      + wait_for_steady_state              = false
+
+      + network_configuration {
+          + assign_public_ip = false
+          + security_groups  = [
+              + "sg-0bd17505985134f4c",
+            ]
+          + subnets          = [
+              + "subnet-0789d6af500ac05e1",
+              + "subnet-08d7eee552492658f",
+            ]
+        }
+
+      + timeouts {}
+    }
+
+  # module.mlflow_service.aws_ecs_task_definition.this[0] will be created
+  + resource "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = jsonencode(
+            [
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/command"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "command"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/environment"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "environment"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/essential"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "essential"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/image"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "image"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/logConfiguration"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "logConfiguration"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/name"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "name"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/portMappings"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "portMappings"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+            ]
+        )
+      + cpu                      = "512"
+      + enable_fault_injection   = (known after apply)
+      + execution_role_arn       = "arn:aws:iam::513065063624:role/mlflow-20250606082003848500000002"
+      + family                   = "mlflow"
+      + id                       = (known after apply)
+      + memory                   = "1024"
+      + network_mode             = "awsvpc"
+      + requires_compatibilities = [
+          + "FARGATE",
+        ]
+      + revision                 = (known after apply)
+      + skip_destroy             = false
+      + tags_all                 = (known after apply)
+      + task_role_arn            = "arn:aws:iam::513065063624:role/mlflow-20250606082004047000000005"
+      + track_latest             = false
+
+      + runtime_platform {
+          + cpu_architecture        = "X86_64"
+          + operating_system_family = "LINUX"
+        }
+    }
+
+Plan: 10 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + inference_service_arn    = (known after apply)
+  + mlflow_service_arn       = (known after apply)
+
+Warning: Value for undeclared variable
+
+The root module does not declare a variable named "aws_account_id" but a
+value was found in file "terraform.tfvars". If you meant to use this value,
+add a "variable" block to the configuration.
+
+To silence these warnings, use TF_VAR_... environment variables to provide
+certain "global" settings to all configurations in your organization. To
+reduce the verbosity of these warnings, use the -compact-warnings option.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
+module.mlflow_bucket.data.aws_partition.current: Reading...
+module.dvc_bucket.data.aws_caller_identity.current: Reading...
+module.inference_service.data.aws_iam_policy_document.task_exec_assume[0]: Reading...
+module.mlflow_service.data.aws_region.current: Reading...
+module.mlflow_bucket.data.aws_caller_identity.current: Reading...
+module.mlflow_service.data.aws_partition.current: Reading...
+module.mlflow_service.data.aws_caller_identity.current: Reading...
+module.mlflow_service.data.aws_iam_policy_document.task_exec[0]: Reading...
+aws_ecr_repository.ridge: Refreshing state... [id=rul-demo-ridge]
+module.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-066c89a5ad8d76c78]
+module.mlflow_service.data.aws_partition.current: Read complete after 0s [id=aws]
+module.mlflow_bucket.data.aws_partition.current: Read complete after 0s [id=aws]
+module.mlflow_service.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.data.aws_iam_policy_document.task_exec_assume[0]: Read complete after 0s [id=2291109037]
+module.mlflow_service.data.aws_iam_policy_document.task_exec[0]: Read complete after 0s [id=1415633931]
+module.inference_cluster.module.cluster.aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/rul-demo-infer-cluster]
+module.dvc_bucket.data.aws_region.current: Reading...
+module.dvc_bucket.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.data.aws_caller_identity.current: Reading...
+module.dvc_bucket.aws_s3_bucket.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.inference_service.data.aws_iam_policy_document.task_exec[0]: Reading...
+module.mlflow_bucket.data.aws_region.current: Reading...
+module.inference_service.data.aws_iam_policy_document.task_exec[0]: Read complete after 0s [id=1415633931]
+module.mlflow_bucket.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.data.aws_region.current: Reading...
+module.inference_service.data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.data.aws_iam_policy_document.task_exec_assume[0]: Reading...
+module.mlflow_cluster.module.cluster.aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/rul-demo-mlflow-cluster]
+module.mlflow_service.data.aws_iam_policy_document.task_exec_assume[0]: Read complete after 0s [id=2291109037]
+module.dvc_bucket.data.aws_partition.current: Reading...
+module.dvc_bucket.data.aws_partition.current: Read complete after 0s [id=aws]
+module.inference_service.data.aws_partition.current: Reading...
+module.inference_service.data.aws_partition.current: Read complete after 0s [id=aws]
+module.mlflow_bucket.aws_s3_bucket.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.inference_service.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.mlflow_service.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.mlflow_bucket.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.mlflow_service.aws_iam_policy.task_exec[0]: Refreshing state... [id=arn:aws:iam::513065063624:policy/mlflow-20250606082003849500000003]
+module.dvc_bucket.data.aws_caller_identity.current: Read complete after 0s [id=513065063624]
+module.inference_service.aws_iam_role.task_exec[0]: Refreshing state... [id=ridge-infer-20250606082003849800000004]
+module.inference_service.aws_iam_policy.task_exec[0]: Refreshing state... [id=arn:aws:iam::513065063624:policy/ridge-infer-20250606082003848200000001]
+module.mlflow_service.aws_iam_role.task_exec[0]: Refreshing state... [id=mlflow-20250606082003848500000002]
+module.inference_service.data.aws_iam_policy_document.tasks_assume[0]: Reading...
+module.inference_service.data.aws_iam_policy_document.tasks_assume[0]: Read complete after 0s [id=132632415]
+module.mlflow_service.data.aws_iam_policy_document.tasks_assume[0]: Reading...
+module.mlflow_service.data.aws_iam_policy_document.tasks_assume[0]: Read complete after 0s [id=132632415]
+module.mlflow_cluster.module.cluster.aws_ecs_cluster.this[0]: Refreshing state... [id=arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-mlflow-cluster]
+module.inference_service.aws_iam_role.tasks[0]: Refreshing state... [id=ridge-infer-20250606082004070000000006]
+module.mlflow_service.aws_iam_role.tasks[0]: Refreshing state... [id=mlflow-20250606082004047000000005]
+module.inference_cluster.module.cluster.aws_ecs_cluster.this[0]: Refreshing state... [id=arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-infer-cluster]
+module.inference_service.module.container_definition["essential"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["essential"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["logConfiguration"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["logConfiguration"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["image"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["image"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["name"].data.aws_region.current: Reading...
+module.inference_service.module.container_definition["name"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.inference_service.module.container_definition["essential"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/essential]
+module.inference_service.module.container_definition["logConfiguration"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/logConfiguration]
+module.inference_service.module.container_definition["name"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/name]
+module.inference_service.module.container_definition["image"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/ridge-infer/image]
+module.mlflow_bucket.aws_s3_bucket_public_access_block.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.mlflow_bucket.aws_s3_bucket_server_side_encryption_configuration.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.mlflow_bucket.aws_s3_bucket_versioning.this[0]: Refreshing state... [id=rul-demo-mlflow]
+module.dvc_bucket.aws_s3_bucket_public_access_block.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.dvc_bucket.aws_s3_bucket_versioning.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.dvc_bucket.aws_s3_bucket_server_side_encryption_configuration.this[0]: Refreshing state... [id=rul-demo-dvc]
+module.mlflow_service.module.container_definition["image"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["image"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["name"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["name"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["logConfiguration"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["logConfiguration"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["portMappings"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["portMappings"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["essential"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["essential"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["command"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["command"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["environment"].data.aws_region.current: Reading...
+module.mlflow_service.module.container_definition["environment"].data.aws_region.current: Read complete after 0s [id=eu-central-1]
+module.mlflow_service.module.container_definition["name"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/name]
+module.mlflow_service.module.container_definition["essential"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/essential]
+module.mlflow_service.module.container_definition["environment"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/environment]
+module.mlflow_service.module.container_definition["portMappings"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/portMappings]
+module.mlflow_service.module.container_definition["logConfiguration"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/logConfiguration]
+module.mlflow_service.module.container_definition["command"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/command]
+module.mlflow_service.module.container_definition["image"].aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/ecs/mlflow/image]
+module.vpc.aws_default_security_group.this[0]: Refreshing state... [id=sg-0392209c9a8c41ecc]
+module.vpc.aws_default_route_table.default[0]: Refreshing state... [id=rtb-0b76aabcfe213227c]
+module.vpc.aws_default_network_acl.this[0]: Refreshing state... [id=acl-0a77d3e0c7a15cbe9]
+module.vpc.aws_route_table.private[1]: Refreshing state... [id=rtb-06253b5856a9eb86e]
+module.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-08a26ceaa42d9b0d6]
+module.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-0261b89bc5b0e2a21]
+module.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-03deb630aafe36383]
+module.vpc.aws_subnet.public[1]: Refreshing state... [id=subnet-00b0d556a7ed3b510]
+module.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-022ea988590b25dc0]
+module.vpc.aws_subnet.private[1]: Refreshing state... [id=subnet-08d7eee552492658f]
+module.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-0789d6af500ac05e1]
+module.mlflow_service.aws_iam_role_policy_attachment.task_exec[0]: Refreshing state... [id=mlflow-20250606082003848500000002-20250606082005033100000008]
+module.inference_service.aws_iam_role_policy_attachment.task_exec[0]: Refreshing state... [id=ridge-infer-20250606082003849800000004-20250606082004997900000007]
+module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-022ea988590b25dc01080289494]
+module.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-09da8ed0be2bccd4f]
+module.vpc.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-092e2e648e1d69241]
+module.vpc.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-0a19f6c9eeae9e284]
+module.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-06c5fbb8ba9353ece]
+module.mlflow_service.data.aws_subnet.this[0]: Reading...
+module.inference_service.data.aws_subnet.this[0]: Reading...
+module.mlflow_service.data.aws_subnet.this[0]: Read complete after 0s [id=subnet-0789d6af500ac05e1]
+module.mlflow_service.aws_security_group.this[0]: Refreshing state... [id=sg-0bd17505985134f4c]
+module.inference_service.data.aws_subnet.this[0]: Read complete after 0s [id=subnet-0789d6af500ac05e1]
+module.inference_service.aws_security_group.this[0]: Refreshing state... [id=sg-0478efd11b1a3cbb5]
+module.dvc_bucket.aws_s3_bucket_lifecycle_configuration.this[0]: Refreshing state... [id=rul-demo-dvc]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # module.inference_service.data.aws_ecs_task_definition.this[0] will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = (known after apply)
+      + cpu                      = (known after apply)
+      + enable_fault_injection   = (known after apply)
+      + ephemeral_storage        = (known after apply)
+      + execution_role_arn       = (known after apply)
+      + family                   = (known after apply)
+      + id                       = (known after apply)
+      + inference_accelerator    = (known after apply)
+      + ipc_mode                 = (known after apply)
+      + memory                   = (known after apply)
+      + network_mode             = (known after apply)
+      + pid_mode                 = (known after apply)
+      + placement_constraints    = (known after apply)
+      + proxy_configuration      = (known after apply)
+      + requires_compatibilities = (known after apply)
+      + revision                 = (known after apply)
+      + runtime_platform         = (known after apply)
+      + status                   = (known after apply)
+      + task_definition          = "ridge-infer"
+      + task_role_arn            = (known after apply)
+      + volume                   = (known after apply)
+    }
+
+  # module.inference_service.aws_appautoscaling_policy.this["cpu"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "cpu"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-infer-cluster/ridge-infer"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageCPUUtilization"
+            }
+        }
+    }
+
+  # module.inference_service.aws_appautoscaling_policy.this["memory"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "memory"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-infer-cluster/ridge-infer"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageMemoryUtilization"
+            }
+        }
+    }
+
+  # module.inference_service.aws_appautoscaling_target.this[0] will be created
+  + resource "aws_appautoscaling_target" "this" {
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + max_capacity       = 10
+      + min_capacity       = 0
+      + resource_id        = "service/rul-demo-infer-cluster/ridge-infer"
+      + role_arn           = (known after apply)
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+      + tags_all           = (known after apply)
+
+      + suspended_state (known after apply)
+    }
+
+  # module.inference_service.aws_ecs_service.this[0] will be created
+  + resource "aws_ecs_service" "this" {
+      + availability_zone_rebalancing      = "DISABLED"
+      + cluster                            = "arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-infer-cluster"
+      + deployment_maximum_percent         = 200
+      + deployment_minimum_healthy_percent = 66
+      + desired_count                      = 0
+      + enable_ecs_managed_tags            = true
+      + enable_execute_command             = false
+      + force_new_deployment               = true
+      + iam_role                           = (known after apply)
+      + id                                 = (known after apply)
+      + launch_type                        = "FARGATE"
+      + name                               = "ridge-infer"
+      + platform_version                   = (known after apply)
+      + scheduling_strategy                = "REPLICA"
+      + tags_all                           = (known after apply)
+      + task_definition                    = (known after apply)
+      + triggers                           = (known after apply)
+      + wait_for_steady_state              = false
+
+      + network_configuration {
+          + assign_public_ip = false
+          + security_groups  = [
+              + "sg-0478efd11b1a3cbb5",
+            ]
+          + subnets          = [
+              + "subnet-0789d6af500ac05e1",
+              + "subnet-08d7eee552492658f",
+            ]
+        }
+
+      + timeouts {}
+    }
+
+  # module.inference_service.aws_ecs_task_definition.this[0] will be created
+  + resource "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = jsonencode(
+            [
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/essential"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "essential"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/image"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "image"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/logConfiguration"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "logConfiguration"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/ridge-infer/name"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "name"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+            ]
+        )
+      + cpu                      = "512"
+      + enable_fault_injection   = (known after apply)
+      + execution_role_arn       = "arn:aws:iam::513065063624:role/ridge-infer-20250606082003849800000004"
+      + family                   = "ridge-infer"
+      + id                       = (known after apply)
+      + memory                   = "1024"
+      + network_mode             = "awsvpc"
+      + requires_compatibilities = [
+          + "FARGATE",
+        ]
+      + revision                 = (known after apply)
+      + skip_destroy             = false
+      + tags_all                 = (known after apply)
+      + task_role_arn            = "arn:aws:iam::513065063624:role/ridge-infer-20250606082004070000000006"
+      + track_latest             = false
+
+      + runtime_platform {
+          + cpu_architecture        = "X86_64"
+          + operating_system_family = "LINUX"
+        }
+    }
+
+  # module.mlflow_service.data.aws_ecs_task_definition.this[0] will be read during apply
+  # (depends on a resource or a module with changes pending)
+ <= data "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = (known after apply)
+      + cpu                      = (known after apply)
+      + enable_fault_injection   = (known after apply)
+      + ephemeral_storage        = (known after apply)
+      + execution_role_arn       = (known after apply)
+      + family                   = (known after apply)
+      + id                       = (known after apply)
+      + inference_accelerator    = (known after apply)
+      + ipc_mode                 = (known after apply)
+      + memory                   = (known after apply)
+      + network_mode             = (known after apply)
+      + pid_mode                 = (known after apply)
+      + placement_constraints    = (known after apply)
+      + proxy_configuration      = (known after apply)
+      + requires_compatibilities = (known after apply)
+      + revision                 = (known after apply)
+      + runtime_platform         = (known after apply)
+      + status                   = (known after apply)
+      + task_definition          = "mlflow"
+      + task_role_arn            = (known after apply)
+      + volume                   = (known after apply)
+    }
+
+  # module.mlflow_service.aws_appautoscaling_policy.this["cpu"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "cpu"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-mlflow-cluster/mlflow"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageCPUUtilization"
+            }
+        }
+    }
+
+  # module.mlflow_service.aws_appautoscaling_policy.this["memory"] will be created
+  + resource "aws_appautoscaling_policy" "this" {
+      + alarm_arns         = (known after apply)
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + name               = "memory"
+      + policy_type        = "TargetTrackingScaling"
+      + resource_id        = "service/rul-demo-mlflow-cluster/mlflow"
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+
+      + target_tracking_scaling_policy_configuration {
+          + disable_scale_in   = false
+          + scale_in_cooldown  = 300
+          + scale_out_cooldown = 60
+          + target_value       = 75
+
+          + predefined_metric_specification {
+              + predefined_metric_type = "ECSServiceAverageMemoryUtilization"
+            }
+        }
+    }
+
+  # module.mlflow_service.aws_appautoscaling_target.this[0] will be created
+  + resource "aws_appautoscaling_target" "this" {
+      + arn                = (known after apply)
+      + id                 = (known after apply)
+      + max_capacity       = 10
+      + min_capacity       = 0
+      + resource_id        = "service/rul-demo-mlflow-cluster/mlflow"
+      + role_arn           = (known after apply)
+      + scalable_dimension = "ecs:service:DesiredCount"
+      + service_namespace  = "ecs"
+      + tags_all           = (known after apply)
+
+      + suspended_state (known after apply)
+    }
+
+  # module.mlflow_service.aws_ecs_service.this[0] will be created
+  + resource "aws_ecs_service" "this" {
+      + availability_zone_rebalancing      = "DISABLED"
+      + cluster                            = "arn:aws:ecs:eu-central-1:513065063624:cluster/rul-demo-mlflow-cluster"
+      + deployment_maximum_percent         = 200
+      + deployment_minimum_healthy_percent = 66
+      + desired_count                      = 0
+      + enable_ecs_managed_tags            = true
+      + enable_execute_command             = false
+      + force_new_deployment               = true
+      + iam_role                           = (known after apply)
+      + id                                 = (known after apply)
+      + launch_type                        = "FARGATE"
+      + name                               = "mlflow"
+      + platform_version                   = (known after apply)
+      + scheduling_strategy                = "REPLICA"
+      + tags_all                           = (known after apply)
+      + task_definition                    = (known after apply)
+      + triggers                           = (known after apply)
+      + wait_for_steady_state              = false
+
+      + network_configuration {
+          + assign_public_ip = false
+          + security_groups  = [
+              + "sg-0bd17505985134f4c",
+            ]
+          + subnets          = [
+              + "subnet-0789d6af500ac05e1",
+              + "subnet-08d7eee552492658f",
+            ]
+        }
+
+      + timeouts {}
+    }
+
+  # module.mlflow_service.aws_ecs_task_definition.this[0] will be created
+  + resource "aws_ecs_task_definition" "this" {
+      + arn                      = (known after apply)
+      + arn_without_revision     = (known after apply)
+      + container_definitions    = jsonencode(
+            [
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/command"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "command"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/environment"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "environment"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/essential"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "essential"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/image"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "image"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/logConfiguration"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "logConfiguration"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/name"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "name"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+              + {
+                  + environment            = []
+                  + interactive            = false
+                  + linuxParameters        = {
+                      + initProcessEnabled = false
+                    }
+                  + logConfiguration       = {
+                      + logDriver = "awslogs"
+                      + options   = {
+                          + awslogs-group         = "/aws/ecs/mlflow/portMappings"
+                          + awslogs-region        = "eu-central-1"
+                          + awslogs-stream-prefix = "ecs"
+                        }
+                    }
+                  + mountPoints            = []
+                  + name                   = "portMappings"
+                  + portMappings           = []
+                  + privileged             = false
+                  + pseudoTerminal         = false
+                  + readonlyRootFilesystem = true
+                  + startTimeout           = 30
+                  + stopTimeout            = 120
+                  + user                   = "0"
+                  + volumesFrom            = []
+                },
+            ]
+        )
+      + cpu                      = "512"
+      + enable_fault_injection   = (known after apply)
+      + execution_role_arn       = "arn:aws:iam::513065063624:role/mlflow-20250606082003848500000002"
+      + family                   = "mlflow"
+      + id                       = (known after apply)
+      + memory                   = "1024"
+      + network_mode             = "awsvpc"
+      + requires_compatibilities = [
+          + "FARGATE",
+        ]
+      + revision                 = (known after apply)
+      + skip_destroy             = false
+      + tags_all                 = (known after apply)
+      + task_role_arn            = "arn:aws:iam::513065063624:role/mlflow-20250606082004047000000005"
+      + track_latest             = false
+
+      + runtime_platform {
+          + cpu_architecture        = "X86_64"
+          + operating_system_family = "LINUX"
+        }
+    }
+
+Plan: 10 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + inference_service_arn    = (known after apply)
+  + mlflow_service_arn       = (known after apply)
+
+Warning: Value for undeclared variable
+
+The root module does not declare a variable named "aws_account_id" but a
+value was found in file "terraform.tfvars". If you meant to use this value,
+add a "variable" block to the configuration.
+
+To silence these warnings, use TF_VAR_... environment variables to provide
+certain "global" settings to all configurations in your organization. To
+reduce the verbosity of these warnings, use the -compact-warnings option.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: 
+module.mlflow_service.aws_ecs_task_definition.this[0]: Creating...
+module.inference_service.aws_ecs_task_definition.this[0]: Creating...
+
+Error: creating ECS Task Definition (ridge-infer): operation error ECS: RegisterTaskDefinition, https response error StatusCode: 400, RequestID: fec9dcd0-ca7b-49e1-a8c7-096e1020ebce, ClientException: Container.image should not be null or empty.
+
+  with module.inference_service.aws_ecs_task_definition.this[0],
+  on .terraform/modules/inference_service/modules/service/main.tf line 611, in resource "aws_ecs_task_definition" "this":
+ 611: resource "aws_ecs_task_definition" "this" {
+
+
+Error: creating ECS Task Definition (mlflow): operation error ECS: RegisterTaskDefinition, https response error StatusCode: 400, RequestID: d30c797d-3f89-44fa-ab7f-f8e236e96a58, ClientException: Container.image should not be null or empty.
+
+  with module.mlflow_service.aws_ecs_task_definition.this[0],
+  on .terraform/modules/mlflow_service/modules/service/main.tf line 611, in resource "aws_ecs_task_definition" "this":
+ 611: resource "aws_ecs_task_definition" "this" {
+

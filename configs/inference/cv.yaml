@@ -1,0 +1,32 @@
+# configs/inference/cv.yaml
+use_aws: false
+simulate_inference_mlflow:
+  model_uri: mlruns/219148870245185486/71c737e7fccc46898c2b04e4fa7f9d93/artifacts/model
+  # model_config_file_path: mlruns/219148870245185486/71c737e7fccc46898c2b04e4fa7f9d93/artifacts/model/MLmodel
+  scaler_uri: mlruns/219148870245185486/71c737e7fccc46898c2b04e4fa7f9d93/artifacts/scaler/scaler.pkl
+  tracking_uri: ${oc.env:MLFLOW_TRACKING_URI, ${hydra:runtime.cwd}/mlruns}
+  rmse_threshold: 10.0
+  target_name: RUL
+  feature_names:
+    - HPT_eff_mod
+    - Mach
+    - Nc
+    - Nf
+    - P15
+    - P30
+    - SmFan
+    - SmLPC
+    - hs
+
+  # input data
+  input_data_file_path: "data/cmapss_ds02_006/inference/XY_inference_full.parquet"
+  input_data_is_s3_bucket: false
+  bucket_key_in_pt_0: "rul-demo-dvc"
+  bucket_key_in_pt_1: ${oc.env:XY_INFERENCE_DATA_KEY, data/cmapss_ds02_006/inference/XY_inference_full.parquet}
+  input_data_file_download_file_path: "data/cmapss_ds02_006/inference/XY_inference_full.parquet"
+
+  # output
+  output_data_is_s3_bucket: false
+  bucket_key_out_pt_0: ""  # filled from tfstate/env
+  bucket_key_out_pt_1: data/cmapss_ds02_006/inference/mlflow_output_full.parquet
+  output_data_file_path: data/cmapss_ds02_006/inference/mlflow_output_full.parquet

@@ -1,0 +1,75 @@
+# .gitlab-ci.yml
+image: docker:25.0
+services: [docker:dind]
+
+stages:
+  - lint            # code style
+  - build           # docker build
+  - train           # ML training
+  - scan            # security
+  - deploy          # KServe
+  - test
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+  REGISTRY: $CI_REGISTRY_IMAGE
+  IMG_TAG: $CI_COMMIT_SHORT_SHA
+
+lint:
+  stage: lint
+  image: python:3.11
+  script:
+    - pip install ruff==0.4.5
+    - ruff check src/
+  only: [merge_requests, pushes]
+
+build-image:
+  stage: build
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build -t $REGISTRY:$IMG_TAG .
+    - docker push $REGISTRY:$IMG_TAG
+  artifacts:
+    expire_in: 1 week
+    paths: [image-digest.txt]
+
+train-model:
+  stage: train
+  image: python:3.11
+  script:
+    - pip install -r requirements.txt
+    - python src/train.py --out model.joblib
+  artifacts:
+    paths: [model.joblib]
+    expire_in: 1 week
+
+trivy-scan:
+  stage: scan
+  image: aquasec/trivy:0.50.1
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - trivy image --exit-code 1 --severity CRITICAL $REGISTRY:$IMG_TAG
+  needs: ["build-image"]
+
+deploy-kserve:
+  stage: deploy
+  image: bitnami/kubectl:1.29
+  script:
+    - echo "$KUBECONFIG_CONTENT" | base64 -d > kubeconfig
+    - export KUBECONFIG=$PWD/kubeconfig
+    - envsubst < kserve.yaml | kubectl apply -f -
+  environment:
+    name: dev
+    url: https://$CI_PROJECT_NAME.$K8S_INGRESS_HOST
+  when: manual
+  needs: ["train-model","build-image"]
+
+e2e-test:
+  stage: test
+  image: curlimages/curl:8
+  script:
+    - curl -f https://$CI_PROJECT_NAME.$K8S_INGRESS_HOST/predict -d '{"x":[1,2,3,4]}'
+  needs: ["deploy-kserve"]

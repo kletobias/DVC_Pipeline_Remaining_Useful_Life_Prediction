@@ -1,0 +1,10 @@
+defaults:
+  - base
+  - _self_
+
+data_version_input: v1
+
+description: |
+  Train data retains only the columns that are less than 95% correlated with all others and are not constant.
+
+  Test data drops the same columns based on the list of remaining columns in train.

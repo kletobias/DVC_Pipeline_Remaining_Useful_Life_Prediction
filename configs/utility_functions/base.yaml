@@ -1,0 +1,10 @@
+utility_function_read:
+  input_file_path: ${data_storage.input_file_path}
+
+utility_function_write:
+  output_file_path: ${data_storage.output_file_path}
+  include_index: false
+
+utility_function_metadata:
+  data_file_path: ${data_storage.output_file_path}
+  output_metadata_file_path: ${data_storage.output_metadata_file_path}

@@ -1,0 +1,7 @@
+defaults:
+  - base
+  - _self_
+
+ingest_data:
+  input_file_path: ${datasets.dataset.original_file_path}
+  suffix: ${data_storage.suffix}

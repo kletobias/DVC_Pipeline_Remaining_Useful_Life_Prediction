@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/219148870245185486/20909a3eec0b428cba10c40abae39efa/artifacts
+deleted_time: 1751021538755
+end_time: 1748343010637
+entry_point_name: ''
+experiment_id: '219148870245185486'
+lifecycle_stage: deleted
+run_id: 20909a3eec0b428cba10c40abae39efa
+run_name: train
+run_uuid: 20909a3eec0b428cba10c40abae39efa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748342968340
+status: 3
+tags: []
+user_id: tobias

@@ -1,0 +1,1 @@
+[('scaler', StandardScaler()), ('model', Ridge(alpha=3.931831963207404, max_iter=1029, tol=0.00011682049418284713))]

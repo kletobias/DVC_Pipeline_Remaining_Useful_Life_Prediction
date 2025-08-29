@@ -1,0 +1,6 @@
+defaults:
+  - base
+  - _self_
+
+directories:
+  data: ${paths.directories.project_root}/data

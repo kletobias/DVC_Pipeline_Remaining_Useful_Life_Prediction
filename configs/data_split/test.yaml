@@ -1,0 +1,6 @@
+defaults:
+  - base
+  - _self_
+
+row_count: ${test_params.row_count_test}
+required_columns: ${test_params.required_columns}

@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1748353491531
+current_stage: None
+description: ''
+last_updated_timestamp: 1748353491531
+name: ridge_regression_9231_test_rmse
+run_id: 7a3a1991dbe14d14be955534e08684a0
+run_link: ''
+source: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/219148870245185486/7a3a1991dbe14d14be955534e08684a0/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/219148870245185486/7a3a1991dbe14d14be955534e08684a0/artifacts/model
+user_id: null
+version: 1

@@ -1,0 +1,9 @@
+defaults:
+  - base
+  - _self_
+
+remove_constant_and_high_corr_features:
+  threshold: 0.95
+  unit_col_name: ${transformations.column_names.unit_col_name}
+  output_params_file_path: ${data_storage.output_params_file_path}
+  suffix: ${data_storage.suffix}

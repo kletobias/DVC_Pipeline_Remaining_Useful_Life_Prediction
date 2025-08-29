@@ -1,0 +1,13 @@
+digest: 2d9db0a3
+name: dataset
+profile: '{"num_rows": 4310736, "num_elements": 38796624}'
+schema: '{"mlflow_colspec": [{"type": "double", "name": "HPT_eff_mod", "required":
+  true}, {"type": "double", "name": "Mach", "required": true}, {"type": "double",
+  "name": "Nc", "required": true}, {"type": "double", "name": "Nf", "required": true},
+  {"type": "double", "name": "P15", "required": true}, {"type": "double", "name":
+  "P30", "required": true}, {"type": "double", "name": "SmFan", "required": true},
+  {"type": "double", "name": "SmLPC", "required": true}, {"type": "double", "name":
+  "hs", "required": true}]}'
+source: '{"tags": {"mlflow.user": "tobias", "mlflow.source.name": "scripts/universal_step.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "2e7dd719387e5777f96e60bca9694937c0a21540"}}'
+source_type: code

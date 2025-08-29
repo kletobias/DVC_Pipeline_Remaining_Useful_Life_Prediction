@@ -1,0 +1,6 @@
+artifact_location: file:///Users/tobias/.local/projects/portfolio_predictive_maintenance_rul/mlruns/219148870245185486
+creation_time: 1748338041695
+experiment_id: '219148870245185486'
+last_update_time: 1748338041695
+lifecycle_stage: active
+name: ridge_optuna_trial
