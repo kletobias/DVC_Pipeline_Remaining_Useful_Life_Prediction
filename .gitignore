@@ -35,6 +35,13 @@ gather_content/
 logs/
 *.egg-info/
 
+# RUL Core IP wheel package artifacts
+rul_core_ip/dist/
+rul_core_ip/build/
+rul_core_ip/src/*.egg-info/
+rul_core_ip/*.whl
+*.whl
+
 # Terraform
 infra/.terraform/
 infra/terraform.tfstate*

@@ -1,0 +1,46 @@
+# Exclude version control
+.git/
+.github/
+
+# Exclude logs
+logs/
+*.log
+
+# Exclude build artifacts from rul_core_ip
+rul_core_ip/build/
+rul_core_ip/dist/
+rul_core_ip/src/*.egg-info/
+rul_core_ip/*.whl
+
+# Exclude Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Exclude environment files
+.env
+.venv/
+env/
+venv/
+
+# Exclude notebooks and outputs
+notebooks/
+outputs/
+
+# Exclude infrastructure files
+infra/
+
+# Exclude troubleshooting files
+troubleshoot/
+trouble/
+
+# Exclude test files
+test_spm/
+
+# Exclude other unnecessary files
+*.egg-info/
+.DS_Store
+tags
+claude_info.log
