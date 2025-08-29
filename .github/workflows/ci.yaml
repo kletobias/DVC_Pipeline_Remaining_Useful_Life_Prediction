@@ -24,13 +24,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build and install rul_core_ip package
+      - name: Install rul_core_ip wheel from wheels branch
         run: |
-          cd rul_core_ip
-          pip install build
-          python -m build --wheel
-          pip install dist/*.whl
-          cd ..
+          git fetch origin wheels
+          git checkout origin/wheels -- rul_core_ip-1.0.0-py3-none-any.whl
+          pip install rul_core_ip-1.0.0-py3-none-any.whl
 
       - name: Reproduce stage
         run: dvc repro -s -f simulate_inference_mlflow
