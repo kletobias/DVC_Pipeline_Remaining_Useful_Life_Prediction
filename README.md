@@ -12,19 +12,33 @@
 
 # Remaining Useful Life (RUL) — Minimal Proof‑of‑Reproducibility
 
+## ✅ CI Validation: RMSE = 9.13 cycles
+
+```console
+$ gh run view --log | grep RMSE
+[2025-08-29 13:51:43,832][rul_core_ip.inference][INFO] - RMSE 9.1314
+```
+
+**Every push triggers automated validation** — CI reproduces the full inference pipeline and verifies:
+- ✓ Model loads correctly from MLflow registry
+- ✓ Data transformations match training pipeline  
+- ✓ **RMSE < 10 cycles** (fails CI if exceeded)
+
 Small, **two‑stage** DVC pipeline  
 1️⃣ `scale_inputs` ➜ 2️⃣ `ridge_predict_log_rul`  
 executed head‑less in CI to guarantee byte‑for‑byte reproducibility.
 
 ---
 
-## 📈 Metric
+## 📈 Performance Metrics
 
-| RMSE (cycles) | Flights / day | Calendar error window |
-| ------------- | ------------- | --------------------- |
-| **~ 10**      | 2             | **≤ 5 days**          |
+| Metric | Value | Industry Context |
+| ------ | ----- | ---------------- |
+| **RMSE** | **9.13 cycles** ✅ | Deep learning: 19–30 cycles |
+| **Flights/day** | 2 | Cargo freighter standard |
+| **Error window** | **< 5 days** | Well within maintenance scheduling |
 
-_Why good?_ Deep‑learning baselines on the same C‑MAPSS subset report **RMSE 19–30 cycles**, so this simple Ridge model halves the error while staying interpretable. See refs in comment block.
+_Why good?_ This simple Ridge model **halves the error** of deep-learning baselines (RMSE 19–30) on the same C-MAPSS subset while staying interpretable. See refs in comment block.
 
 ---
 
