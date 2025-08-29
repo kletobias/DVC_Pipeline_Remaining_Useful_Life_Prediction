@@ -45,6 +45,7 @@ infra/tfplan
 /cmapss2.h5
 # Visual Studio Code
 .vscode/
+.vscode/settings.json
 !.vscode/extensions.json
 !.vscode/tasks.json
 !.vscode/launch.json
